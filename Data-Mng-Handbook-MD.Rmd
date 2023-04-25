@@ -199,10 +199,10 @@ values <- reactiveVal()
 
  
  output$downloadData <- downloadHandler(filename = function() { 
-    return(paste('Example.xlsx'))
+    return(paste('FAIR_check.xlsx'))
 
  }, content = function(file) {
-   write.xlsx(fair_check, file)
+   write.xlsx(FairDT, file)
  })
 
 ```
