@@ -5,7 +5,7 @@ output:
   html_document:
       toc: yes
       toc_float: 
-        collapsed: FALSE
+        collapsed: TRUE
       df_print: paged
   md_document:
     variant: markdown_github
