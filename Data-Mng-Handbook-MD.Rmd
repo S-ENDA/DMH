@@ -154,7 +154,39 @@ values <- reactiveVal()
            
          }
       
-  rhandsontable(FairDT)
+         rhandsontable(FairDT) %>%
+           
+           hot_col(
+             col = "Score",
+             source =  "Score",
+             readOnly = TRUE,
+             renderer = "
+          function (instance, td, row, col, prop, value, cellProperties) {
+             Handsontable.renderers.NumericRenderer.apply(this, arguments);
+             if (value > 0) {
+              td.style.background = 'lightgreen';
+                           }
+           }"
+           ) %>%
+           hot_col(
+             col = "Total",
+             source =  "Total",
+             renderer = "
+          function (instance, td, row, col, prop, value, cellProperties) {
+             Handsontable.renderers.NumericRenderer.apply(this, arguments);
+           if (value < 5 ) {
+              td.style.background = 'grey';}
+            if (value > 5 && value < 20) {
+              td.style.background = 'pink';}
+      if (value >= 20 && value < 50) {
+              td.style.background = 'yellow';}
+      if (value > 50) {
+              td.style.background = 'lightgreen';}
+
+      }
+      "
+           )
+    
 
   })
 
