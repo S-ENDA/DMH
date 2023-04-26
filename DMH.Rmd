@@ -6,9 +6,6 @@ output:
       toc: yes
       toc_float: 
         collapsed: TRUE
-      df_print: paged
-  md_document:
-    variant: markdown_github
 runtime: shiny_prerendered
 ---
 
@@ -42,13 +39,13 @@ knitr::opts_chunk$set(echo=FALSE)
 
 ```{r, context="setup", include=FALSE}
 
-require(shiny)
-require(dplyr)
-require(rhandsontable)
-require(openxlsx)
-require(DT)
-require(data.table)
-require(htmltools)
+library(shiny)
+library(dplyr)
+library(rhandsontable)
+library(openxlsx)
+library(DT)
+library(data.table)
+library(htmltools)
 
 filename = "FAIR.xlsx"
 
