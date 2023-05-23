@@ -1,9 +1,12 @@
 ## Contacts and roles
 
- Institute  | Role | Description | Responsable
---|--|--|--
- NIVA       | Environmental Data Science Section Leader   |  | Dag Hjerman
- NIVA       | Technical Group Lead                        |  | Zofia Rudjord
- NIVA       | Data Specialist                             | Data management planning; Documentation and architecture; Data workflow improvements  | Ivana Huskova
- NIVA       | Data engineer                               | Data engineer ensures that data are collected and correctly uploaded to NIVA's data storages - Reporting of data to [Vannmiljø](https://vannmiljo.miljodirektoratet.no) -Quality Assurance|
+|Institute|Name|Role|Inquiries |Contact|
+|:----|:----|:----|:----|:----|
+|NIVA|Dag Hjerman|Environmental Data Science Section Leader|Projects, colaborations |dhj@niva.no|
+|NIVA|Zofia Rudjord|Technical Group Lead|NIVACloud, loggers, technical inquiries |Zofia.Rudjord@niva.no|
+|NIVA|Ivana Huskova|Data Specialist|Data management planning; Documentation and architecture; Data workflow improvements|ivana.huskova@niva.no|
+| | |Data engineer|Reporting to [Vannmiljø](https://vannmiljo.miljodirektoratet.no)| |
+|NIVA|Kim Leirvik|Systems developer|Datasets, NIVAcloud, Data Management, NetCDF, Thredds server|kim.leirvik@niva.no|
+|NIVA|Viviane Girardin|Systems engineer|LIMS or any lab-related data , Shiny, R, Data Management|viviane.girardin@niva.no|
+
 
