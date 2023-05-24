@@ -1,6 +1,6 @@
 # Data Services
 
-Comming soon.
+Coming soon.
 
 ## Purpose
 
