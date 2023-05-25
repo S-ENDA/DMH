@@ -1,6 +1,6 @@
 ## Contacts and roles
 
-| Institute      | Name                | Role                                                | Inquiries                                                                                                | Contact                  |
+| Institute      | Responsible Personnel                | Role                                                | Description                                                                                                | Contact                  |
 |:---------------|:--------------------|:----------------------------------------------------|:---------------------------------------------------------------------------------------------------------|:-------------------------|
 | NIVA           | Dag Hjerman         | Environmental Data Science Section Leader           | Projects, colaborations                                                                                  | dhj@niva.no              |
 | NIVA           | Zofia Rudjord       | Technical Group Lead                                | NIVACloud, loggers, technical inquiries                                                                  | Zofia.Rudjord@niva.no    |
@@ -20,6 +20,11 @@
 | NINA           | Matteo De Stefano   | Data Engineer                                       | Data management, Documentation, Vocabularies                                                             | matteo.destefano@nina.no |
 |NINA| Francesco Frassinelli|Data Engineer| Data Management, System Architecture                                                                     |francesco.frassinelli@nina.no|
 |NINA|Frode Thomassen Singsaas|Librarian| Vocabularies                                                                                             |frode.singsaas@nina.no|
+MET|The directors of MET, headed by the Director General,  Roar Skålin|Steering Group|Responsible for prioritisation,strategic decisions, and resource commitment from the Departments.         |roars@met.no| 
+|MET|Morten Wergeland Hansen|Data Manager|Has the overall responsibility for ensuring that the institute’s data management regime is implemented and followed throughout the organisation. The DM is located in the Research and Development Department,Division for Remote Sensing and Data Management (RSDM).    |mortenwh@met.no|
+|MET|Solfrid Agersten, Værvarslingsdivisjonen<br> Nina Elisabeth Larsgård, Observasjons- og klimadivisjonen<br> Eivind Støylen, Senter for utvikling av varslingstjenesten<br> Jan Ivar Pladsen, IT-divisjonen|Data Management Group|The Data Management Group (DMG) provides support to the DM, project managers and line managers for the execution of his/her duties and acts as local points of contact for data management in the organisation.  |solfrida@met.no<br> ninael@met.no<br> eivinds@met.no<br> janip@met.no |
+|MET|Gjermund Mamen Haugen, Værvarslingsdivisjonen <br> Lara Ferrighi, Forsknings og utviklingsdivisjonen - Fjernmåling og Dataforvaltning (FoU-FD) <br> Erik Totlund, IT-divisjonen| Service Organisation|The Service Organisation (SO) is responsible for operation,technical development and platform management of the services for long-term data. |gjermundmh@met.no<br> laraf@met.no<br> erikt@met.no|
+|MET|| Remote Sensing and Data Management department |The RSDM maintains the responsibility for alignment and coordination with national and international standardisation efforts and modern data management procedures, with participation of other units as required. ||
 
 [//]: # (Include LIMS responsible, full EBAS group? (https://ebas.nilu.no/about/ebas-group/), GAW-WDCA, GAW-WDCRG, SIOS, AMAP, HELCOM, GUAN responsible? Richard: Data portal, Rest API etc, Markus: Vocabulary, Jan Øyvind: DOI and landing pages.)
 
