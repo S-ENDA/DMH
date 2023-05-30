@@ -27,6 +27,3 @@ MET|The directors of MET, headed by the Director General,  Roar Skålin|Steering
 |MET|Gjermund Mamen Haugen, Værvarslingsdivisjonen <br> Lara Ferrighi, Forsknings og utviklingsdivisjonen - Fjernmåling og Dataforvaltning (FoU-FD) <br> Erik Totlund, IT-divisjonen| Service Organisation|The Service Organisation (SO) is responsible for operation,technical development and platform management of the services for long-term data. |gjermundmh@met.no<br> laraf@met.no<br> erikt@met.no|
 |MET|| Remote Sensing and Data Management department |The RSDM maintains the responsibility for alignment and coordination with national and international standardisation efforts and modern data management procedures, with participation of other units as required. ||
 
-[//]: # (Include LIMS responsible, full EBAS group? (https://ebas.nilu.no/about/ebas-group/), GAW-WDCA, GAW-WDCRG, SIOS, AMAP, HELCOM, GUAN responsible? Richard: Data portal, Rest API etc, Markus: Vocabulary, Jan Øyvind: DOI and landing pages.)
-
-
