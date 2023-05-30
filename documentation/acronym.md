@@ -20,6 +20,7 @@
 |DMCG|Data Management Coordination Group|
 |DMP|Data Management Plan (DMP definition, easyDMP tool)|
 |DOI|Digital Object Identifier (DOI)|
+|EBAS|Database with atmospheric measurement data at NILU|
 |eduGAIN|The Global Academic Interfederation Service (eduGAIN)|
 |ENVRI|European Environmental Research Infrastructures (ENVRI)|
 |ENVRI FAIR|Making the ENV RIs data services FAIR." A proposal to the EU’s Horizon 2020 call INFRAEOSC-04
