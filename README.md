@@ -1,4 +1,4 @@
-# Data Management Hanbook
+# Data Management Handbook
 
 This handbook describes general data management practices of the S-ENDA partners (available [here](https://s-enda.github.io/DMH/)):
 
