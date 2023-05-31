@@ -8,6 +8,14 @@
 
 ---
 
+- [Data Governance](dataGovernance.md)
+
+---
+
+- [Structuring and Documenting Data](structDocData.md)
+
+---
+
 - [Contacts and roles](roles.md)
 
 ---
@@ -17,12 +25,9 @@
 ---
 
 - [Data Services](dataServices.md)
-    - [Purpose](purpose.md)
-    - [Implementation](implementation.md)
-
----
-
-- [Data Governance]()
+  - [Purpose](purpose.md)
+  - [Implementation](implementation.md)
+  - [User Portals](userPortals.md)
 
 ---
 
