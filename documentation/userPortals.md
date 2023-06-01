@@ -11,5 +11,7 @@ Here, we can distinguish between a general portal for all publishable datasets f
 
 |User portal|Description|Service type|Data Producer|
 |:----|:----|:----|:----|
-|[Arctic Data Center](https://adc.met.no/)|The Arctic Data Centre (ADC) is a service provided by the Norwegian Meteorological Institute (MET) and is a legacy of the International Polar Year (IPY) when MET coordinated operational data streams internationally and research data nationally.|Search,Visualization|MET,NILU,NIVA, NILU|
+|[Geonorge](https://www.geonorge.no/)| Public map catalogue| Access | Geonorge
+|[Arctic Data Center](https://adc.met.no/)|The Arctic Data Centre (ADC) is a service provided by the Norwegian Meteorological Institute (MET) and is a legacy of the International Polar Year (IPY) when MET coordinated operational data streams internationally and research data nationally.|Search, Visualization|MET, NILU, NIVA, NINA, Others|
 |[NIVA's THREDDS Data Server](https://thredds.t.niva.no/thredds/info/serverInfo.html)|Timeseries data. Still under development (test server)|Access|NIVA|
+|[Aquamonitor](https://aquamonitor.niva.no/portal/)| Water monitoring system| Access, Visualization| NIVA
