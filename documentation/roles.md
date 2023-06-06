@@ -1,4 +1,13 @@
-## Contacts and roles
+## Data management roles and responsibilities
+### Data management at MET Norway  
+
+### Data management at NIVA
+
+### Data management at NILU
+
+### Data management at NINA
+
+### Contacts and roles
 
 | Institute      | Responsible Personnel                | Role                                                | Description                                                                                                | Contact                  |
 |:---------------|:--------------------|:----------------------------------------------------|:---------------------------------------------------------------------------------------------------------|:-------------------------|
