@@ -11,6 +11,12 @@ The intended audience for this DMH is any personnel involved in the process of m
 
 The DMH is a strategic governing document and should be used as part of the quality framework the organisation is using.
 
+The S-ENDA partners:
+- Norwegian Meteorological Institute (Meteorologisk institutt - MET)
+- Norwegian Institute for Air Research (Norsk institutt for luftforskning - NILU)
+- Norwegian Institute for Nature Research (Norsk institutt for naturforskning - NINA)
+- Norwegian Institute for Water Research (Norsk institutt for vannforskning - NIVA)
+
 
 ### About S-ENDA
 
