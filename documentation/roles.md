@@ -11,7 +11,11 @@ Between the data providers and data consumers are the processes that manage and 
 *Figure 1. Value chain for data*
 
 ### Data management at MET Norway  
-At MET Norway, data have always been managed,...
+At MET Norway, data have always been managed, albeit in a rather narrow technical sense. The main focus has been on storage, primarily for operational data. More recently, the issues of delivering, sharing and reusing data have steadily gained prominence. Still, the legacy of data storage systems built up over many years is an important factor in any uniform data management program.
+
+During the International Polar Year ([IPY](https://public.wmo.int/en/bulletin/international-polar-year-2007-2008)), MET Norway was the international coordinator for operational data. IPY data management was based on the principle of distributed data management through exchange of standardised descriptions of datasets between contributing data centres.
+
+At the global level, the institute is the primary representative for Norway in the [WMO](https://public.wmo.int/en). WMO has in recent years reorganised its approach to documenting and sharing data through two major activities: [WIS](https://community.wmo.int/en/activity-areas/wis) and [WIGOS](https://community.wmo.int/en/activity-areas/WIGOS). Both are metadata-driven activities that follow the same principles as [Geonorge](https://www.geonorge.no/en/) and [INSPIRE](https://inspire.ec.europa.eu/), although there are differences concerning standards required.
 
 ### Data management at NIVA
 
