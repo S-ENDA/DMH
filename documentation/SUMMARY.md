@@ -25,8 +25,6 @@
 ---
 
 - [Data Services](dataServices.md)
-  - [Purpose](purpose.md)
-  - [Implementation](implementation.md)
   - [User Portals](userPortals.md)
 
 ---
