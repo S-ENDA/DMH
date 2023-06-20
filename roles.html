@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Contacts and roles - Data Manangement Handbook for S-ENDA partners</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="index.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="spacer"></li><li class="chapter-item "><a href="Intro.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item "><a href="dataGovernance.html"><strong aria-hidden="true">3.</strong> Data Governance</a></li><li class="spacer"></li><li class="chapter-item "><a href="structDocData.html"><strong aria-hidden="true">4.</strong> Structuring and Documenting Data</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="roles.html" class="active"><strong aria-hidden="true">5.</strong> Contacts and roles</a></li><li class="spacer"></li><li class="chapter-item "><a href="practicalGuides.html"><strong aria-hidden="true">6.</strong> Practical Guides</a></li><li class="spacer"></li><li class="chapter-item "><a href="dataServices.html"><strong aria-hidden="true">7.</strong> Data Services</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="userPortals.html"><strong aria-hidden="true">7.1.</strong> User Portals</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><a href="acronym.html">Acronyms</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="metadata.html">Metadata Types</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Data Manangement Handbook for S-ENDA partners</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/s-ENDA/dmh" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/s-ENDA/dmh/edit/mdbook/documentation/roles.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="data-management-roles-and-responsibilities"><a class="header" href="#data-management-roles-and-responsibilities">Data management roles and responsibilities</a></h2>
+<h3 id="context"><a class="header" href="#context">Context</a></h3>
+<p>Data is processed and interpreted to generate knowledge (e.g., about the weather) for end users. The knowledge can be presented as information in the form of actual data, illustrations, text or other forms of communication. In this context, an illustration is a representation of data, whereas data means the numerical values needed to analyse and interpret a natural process (i.e., calibrated or with calibration information; it must be possible to understand the meaning of the numerical value from the available and machine-readable information).</p>
+<p>Advanced users typically consume some type of data in order to process and interpret it, and produce new knowledge, e.g., in the form of a new dataset or other information. The datasets can be organised in different levels, such as the <a href="https://codes.wmo.int/wmdr/_SourceOfObservation">WMO WIGOS definition for levels of data</a>. Less advanced users apply information based on data (e.g., an illustration) to make decisions (e.g., clothing adapted to the forecast weather).</p>
+<p>Between the data providers and data consumers are the processes that manage and deliver the datasets (Figure 1). A number of human roles may be defined with responsibilities that, together, ensure that these processes are carried out in accordance with the data management requirements of the organisation. The definition and filling of these roles depend heavily on the particular organisation, and each organisation must devise its own best solution.</p>
+<p><img src="https://github.com/S-ENDA/data-management-handbook/blob/master/source/images/value_chain.png" alt="value_chain" /></p>
+<p><em>Figure 1. Value chain for data</em></p>
+<h3 id="data-management-at-met-norway"><a class="header" href="#data-management-at-met-norway">Data management at MET Norway</a></h3>
+<p>At MET Norway, data have always been managed, albeit in a rather narrow technical sense. The main focus has been on storage, primarily for operational data. More recently, the issues of delivering, sharing and reusing data have steadily gained prominence. Still, the legacy of data storage systems built up over many years is an important factor in any uniform data management program.</p>
+<p>During the International Polar Year (<a href="https://public.wmo.int/en/bulletin/international-polar-year-2007-2008">IPY</a>), MET Norway was the international coordinator for operational data. IPY data management was based on the principle of distributed data management through exchange of standardised descriptions of datasets between contributing data centres.</p>
+<p>At the global level, the institute is the primary representative for Norway in the <a href="https://public.wmo.int/en">WMO</a>. WMO has in recent years reorganised its approach to documenting and sharing data through two major activities: <a href="https://community.wmo.int/en/activity-areas/wis">WIS</a> and <a href="https://community.wmo.int/en/activity-areas/WIGOS">WIGOS</a>. Both are metadata-driven activities that follow the same principles as <a href="https://www.geonorge.no/en/">Geonorge</a> and <a href="https://inspire.ec.europa.eu/">INSPIRE</a>, although there are differences concerning standards required.</p>
+<h3 id="data-management-at-niva"><a class="header" href="#data-management-at-niva">Data management at NIVA</a></h3>
+<h3 id="data-management-at-nilu"><a class="header" href="#data-management-at-nilu">Data management at NILU</a></h3>
+<h3 id="data-management-at-nina"><a class="header" href="#data-management-at-nina">Data management at NINA</a></h3>
+<h3 id="contacts-and-roles"><a class="header" href="#contacts-and-roles">Contacts and roles</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Institute</th><th style="text-align: left">Responsible Personnel</th><th style="text-align: left">Role</th><th style="text-align: left">Description</th><th style="text-align: left">Contact</th></tr></thead><tbody>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Dag Hjerman</td><td style="text-align: left">Environmental Data Science Section Leader</td><td style="text-align: left">Projects, colaborations</td><td style="text-align: left">dhj@niva.no</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Zofia Rudjord</td><td style="text-align: left">Technical Group Lead</td><td style="text-align: left">NIVACloud, loggers, technical inquiries</td><td style="text-align: left">Zofia.Rudjord@niva.no</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Ivana Huskova</td><td style="text-align: left">Data Specialist</td><td style="text-align: left">Data management planning; Documentation and architecture; Data workflow improvements; data QC procedures</td><td style="text-align: left">ivana.huskova@niva.no</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Kim Leirvik</td><td style="text-align: left">Systems developer</td><td style="text-align: left">Datasets, NIVAcloud, Data Management, NetCDF, Thredds server</td><td style="text-align: left">kim.leirvik@niva.no</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Viviane Girardin</td><td style="text-align: left">Systems engineer</td><td style="text-align: left">LIMS or any lab-related data , Shiny, R, Data Management</td><td style="text-align: left">viviane.girardin@niva.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Kjetil Tørseth</td><td style="text-align: left">Research Director – Atmosphere and Climate Research</td><td style="text-align: left">Overall responsibility for <a href="acronym.html">EBAS</a> at NILU</td><td style="text-align: left">kt@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left"></td><td style="text-align: left"><a href="acronym.html">EBAS</a> data curator(s)</td><td style="text-align: left">Curation and quality assurance of EBAS data</td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left"></td><td style="text-align: left"><a href="acronym.html">EBAS</a> scientific expert(s)</td><td style="text-align: left">Scientific responsible for certain components of EBAS data</td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Paul Eckhart</td><td style="text-align: left">Senior system developer</td><td style="text-align: left">EBAS database architecture and core software development</td><td style="text-align: left">pe@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Markus Fiebig</td><td style="text-align: left">Senior scientist</td><td style="text-align: left">Director of ACTRIS In Situ Data Centre unit, Vocabulary</td><td style="text-align: left">mf@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Cathrine Lund Myhre</td><td style="text-align: left">Senior scientist</td><td style="text-align: left">Director ACTRIS Data Centre</td><td style="text-align: left">clm@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Wenche Aas</td><td style="text-align: left">Senior scientist</td><td style="text-align: left">Responsible for work related to the Chemical Co-ordinating Centre of EMEP (CCC)</td><td style="text-align: left">wa@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Ann Mari Fjæraa</td><td style="text-align: left">Senior scientist</td><td style="text-align: left">Responsible for work related to EVDC project</td><td style="text-align: left">amf@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Richard Rud</td><td style="text-align: left">System developer</td><td style="text-align: left">Responsible for the ACTRIS data portal</td><td style="text-align: left">ror@nilu.no</td></tr>
+<tr><td style="text-align: left">NINA</td><td style="text-align: left">Roald Vang</td><td style="text-align: left">Technical group lead</td><td style="text-align: left">Steering group, Project overview</td><td style="text-align: left">roald.vang@nina.no</td></tr>
+<tr><td style="text-align: left">NINA</td><td style="text-align: left">Matteo De Stefano</td><td style="text-align: left">Data Engineer</td><td style="text-align: left">Data management, Documentation, Vocabularies</td><td style="text-align: left">matteo.destefano@nina.no</td></tr>
+<tr><td style="text-align: left">NINA</td><td style="text-align: left">Francesco Frassinelli</td><td style="text-align: left">Data Engineer</td><td style="text-align: left">Data Management, System Architecture</td><td style="text-align: left">francesco.frassinelli@nina.no</td></tr>
+<tr><td style="text-align: left">NINA</td><td style="text-align: left">Frode Thomassen Singsaas</td><td style="text-align: left">Librarian</td><td style="text-align: left">Vocabularies</td><td style="text-align: left">frode.singsaas@nina.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left">The directors of MET, headed by the Director General,  Roar Skålin</td><td style="text-align: left">Steering Group</td><td style="text-align: left">Responsible for prioritisation,strategic decisions, and resource commitment from the Departments.</td><td style="text-align: left">roars@met.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left">Morten Wergeland Hansen</td><td style="text-align: left">Data Manager</td><td style="text-align: left">Has the overall responsibility for ensuring that the institute’s data management regime is implemented and followed throughout the organisation. The DM is located in the Research and Development Department,Division for Remote Sensing and Data Management (RSDM).</td><td style="text-align: left">mortenwh@met.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left">Solfrid Agersten, Værvarslingsdivisjonen<br> Nina Elisabeth Larsgård, Observasjons- og klimadivisjonen<br> Eivind Støylen, Senter for utvikling av varslingstjenesten<br> Jan Ivar Pladsen, IT-divisjonen</td><td style="text-align: left">Data Management Group</td><td style="text-align: left">The Data Management Group (DMG) provides support to the DM, project managers and line managers for the execution of his/her duties and acts as local points of contact for data management in the organisation.</td><td style="text-align: left">solfrida@met.no<br> ninael@met.no<br> eivinds@met.no<br> janip@met.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left">Gjermund Mamen Haugen, Værvarslingsdivisjonen <br> Lara Ferrighi, Forsknings og utviklingsdivisjonen - Fjernmåling og Dataforvaltning (FoU-FD) <br> Erik Totlund, IT-divisjonen</td><td style="text-align: left">Service Organisation</td><td style="text-align: left">The Service Organisation (SO) is responsible for operation,technical development and platform management of the services for long-term data.</td><td style="text-align: left">gjermundmh@met.no<br> laraf@met.no<br> erikt@met.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left"></td><td style="text-align: left">Remote Sensing and Data Management department</td><td style="text-align: left">The RSDM maintains the responsibility for alignment and coordination with national and international standardisation efforts and modern data management procedures, with participation of other units as required.</td><td style="text-align: left"></td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="structDocData.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="practicalGuides.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="structDocData.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="practicalGuides.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Data Manangement Handbook for S-ENDA partners</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="index.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="spacer"></li><li class="chapter-item "><a href="Intro.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="spacer"></li><li class="chapter-item "><a href="dataGovernance.html"><strong aria-hidden="true">3.</strong> Data Governance</a></li><li class="spacer"></li><li class="chapter-item "><a href="structDocData.html"><strong aria-hidden="true">4.</strong> Structuring and Documenting Data</a></li><li class="spacer"></li><li class="chapter-item "><a href="roles.html"><strong aria-hidden="true">5.</strong> Contacts and roles</a></li><li class="spacer"></li><li class="chapter-item "><a href="practicalGuides.html"><strong aria-hidden="true">6.</strong> Practical Guides</a></li><li class="spacer"></li><li class="chapter-item "><a href="dataServices.html"><strong aria-hidden="true">7.</strong> Data Services</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="userPortals.html"><strong aria-hidden="true">7.1.</strong> User Portals</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><a href="acronym.html">Acronyms</a></li><li class="spacer"></li><li class="chapter-item affix "><a href="metadata.html">Metadata Types</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Data Manangement Handbook for S-ENDA partners</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/s-ENDA/dmh" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="repository-structure"><a class="header" href="#repository-structure">Repository structure</a></h2>
+<ul>
+<li><code>documentation</code>: folder where documentation is written in markdown format</li>
+<li><code>documentation/SUMMARY.md</code>: the file that tells mdBook how to structure the contents</li>
+<li>subfolders correspond with the folder structure in the <code>documentation</code> folder where the diagrams are automatically rendered into svg by GitHub actions.</li>
+<li><code>book.toml</code>: configuration for mdBook</li>
+</ul>
+<h2 id="update-documentation"><a class="header" href="#update-documentation">Update documentation</a></h2>
+<ul>
+<li>Create a new branch</li>
+<li>Make your changes in the documentation folder in the new branch</li>
+<li>Create a pull request.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>This document describes general data management practices in line with the <a href="https://www.go-fair.org/fair-principles/">FAIR</a> (Findable, Accessible, Interoperable and Reusable) guiding principles for scientific data management, and focuses on the management and sharing of dynamical geodata (i.e., geolocated data about processes in nature). The practices aim at a metadata-driven data management regime. The primary focus of this handbook is on management of dynamic geodata. It provides a synopsis of the general data management practices of S-ENDA partners. We have prepared an overview for organisation specific information that can be updated and merged into the general handbook by the user organisations.</p>
+<p>The purpose of the Data Management Handbook (DMH) is threefold:</p>
+<ol>
+<li>to provide an overview of the principles for FAIR data management to be employed;</li>
+<li>to help personnel identify their roles and responsibilities for good data management; and</li>
+<li>to provide personnel with practical guidelines for carrying out good data management.</li>
+</ol>
+<p>The intended audience for this DMH is any personnel involved in the process of making data available for the end user. This process can be viewed as a value chain that moves from the producer of the data to the data consumer (i.e., the end user). The handbook provides description and summary of data management principles. Details of the practical implementation of the principles are described along 4 pillars: structuring and documenting data; data services; user portals and documentation; and data governance. Practical guidance for data producers is also provided.</p>
+<p>The DMH is a strategic governing document and should be used as part of the quality framework the organisation is using.</p>
+<p>The S-ENDA partners:</p>
+<ul>
+<li>Norwegian Meteorological Institute (Meteorologisk institutt - MET)</li>
+<li>Norwegian Institute for Air Research (Norsk institutt for luftforskning - NILU)</li>
+<li>Norwegian Institute for Nature Research (Norsk institutt for naturforskning - NINA)</li>
+<li>Norwegian Institute for Water Research (Norsk institutt for vannforskning - NIVA)</li>
+</ul>
+<h3 id="about-s-enda"><a class="header" href="#about-s-enda">About S-ENDA</a></h3>
+<p>S-ENDA is part of a larger effort within the national geodata strategy (“Alt skjer et sted”), and relates to this strategy through GeoNorge, which is developed and operated by the Norwegian Mapping Authority (“Kartverket”). GeoNorge, in turn, relates to the European <a href="https://inspire.ec.europa.eu/">INSPIRE</a> Geoportal through the Inspire directive. In particular, S-ENDA is responsible for Action 20 of the Norwegian geodata strategy. The goal of Action 20 is to establish a distributed, virtual data center for use and management of dynamic geodata. S-ENDA’s vision is that everyone, from professional users to the general public, should have easy, secure and stable access to dynamic geodata.</p>
+<p>The vision of S-ENDA and the goal of Action 20 are aligned with international guidelines, in particular the FAIR Guiding Principles for scientific data management and stewardship.
+S-ENDA in a national and international context</p>
+<p>Dynamic geodata is weather, environment and climate-related data that changes in space and time and is thus descriptive of processes in nature. Examples are weather observations, weather forecasts, pollution (environmental toxins) in water, air and sea, information on the drift of cod eggs and salmon lice, water flow in rivers, driving conditions on the roads and the distribution of sea ice. Dynamic geodata provides important constraints for many decision-making processes and activities in society.</p>
+<p>GeoNorge is the national website for map data and other location information in Norway. Here, users of map data can search and access such information. Dynamic geodata is one such information type. S-ENDA extends GeoNorge by taking responsibility for harmonising the management of dynamic geodata in a consistent manner.</p>
+<p><img src="src/c4-architecture.png" alt="Architecture" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-governance"><a class="header" href="#data-governance">Data governance</a></h1>
+<h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
+<p>This chapter describes how we organise and steer data management activities in order to ensure that:</p>
+<ul>
+<li>
+<p>The guidelines described above are implemented throughout the organisation;</p>
+</li>
+<li>
+<p>Our data management practices are in line with and contribute to the institute’s strategic aims;</p>
+</li>
+<li>
+<p>Our data management regime is subject to review, analysis and revision in a timely manner.</p>
+</li>
+</ul>
+<p>These higher level aspects of data management are often referred to as data governance. A useful definition is:</p>
+<blockquote>
+<p>&quot;Data governance …​ is the overall management of the availability, usability, integrity and security of data used in an enterprise. A sound data governance program includes a governing body or council, a defined set of procedures and a plan to execute those procedures.&quot;</p>
+</blockquote>
+<p>In this chapter we address many aspects of this definition, but a full description of data governance touches on management structures that are beyond the scope of this handbook.
+5.2. Data life cycle management</p>
+<p>Data life cycle management is steered by documentation describing how data generated or used in an activity will be handled throughout the lifetime of the activity and after the activity has been completed. This is living documentation that follows the activity and specifies what kind of data will be generated or acquired, how the data will be described, where the data will be stored, whether and how the data can be shared, and how the data will be retired (archived or deleted). The purpose of life cycle management is to safeguard the data, not just during their “active” period but also for future reuse of the data, and to facilitate cost-effective data handling.</p>
+<p>This DMH recommends the following concepts of life cycle management to be implemented for the institution:</p>
+<ul>
+<li>
+<p>An institution specific Data Management Handbook (DMH) based on a common general template;</p>
+</li>
+<li>
+<p>Extended discovery metadata for data in internal production chains (these are metadata elements that provide the necessary information for life cycle management just described); and</p>
+</li>
+<li>
+<p>A Data Management Plan (DMP) document (a DMP is expected for datasets produced in external projects, but may also be useful for internal datasets, as a supplement to the extended discovery metadata).</p>
+</li>
+</ul>
+<p>The goal is that life cycle management information shall be readily available for every dataset managed by the institute. How these concepts are implemented are described in the subsections below.</p>
+<h2 id="data-management-plan"><a class="header" href="#data-management-plan">Data Management Plan</a></h2>
+<p>A Data Management Plan (DMP) is a document that describes textually how the data life cycle management will be carried out for datasets used and produced in specific projects. Generally, these are externally financed projects for which such documentation is required by funding agencies. However, larger internal projects covering many datasets may also find it beneficial to create a specific document of this type.</p>
+<p>Currently, agencies funding R&amp;D (such as NFR and the EU) do not strictly require a DMP from the start of any project. However, for projects in the geosciences, data management is an issue that must be addressed, and the agencies strongly recommend a DMP solution. For example, NFR publishes guidelines for the contents of a DMP, including links to tools (templates and online services); these guidelines are recommended for any data management project or activity and will in time become a requirement according to NFR.</p>
+<h2 id="data-governance-at-insert-organisation-here"><a class="header" href="#data-governance-at-insert-organisation-here">Data governance at [insert organisation here]</a></h2>
+<h2 id="current-implementation"><a class="header" href="#current-implementation">Current implementation</a></h2>
+<h2 id="organisational-roles"><a class="header" href="#organisational-roles">Organisational Roles</a></h2>
+<h2 id="status-dmh"><a class="header" href="#status-dmh">Status DMH</a></h2>
+<h2 id="status-discovery-metadata"><a class="header" href="#status-discovery-metadata">Status Discovery metadata</a></h2>
+<h2 id="status-dmp"><a class="header" href="#status-dmp">Status DMP</a></h2>
+<h2 id="planned-developments-in-the-near-term--2-years"><a class="header" href="#planned-developments-in-the-near-term--2-years">Planned developments in the near-term (&lt; 2 years)</a></h2>
+<p>Revise DMH annually or when needed.</p>
+<h2 id="expected-evolution-in-the-longer-term--2-years"><a class="header" href="#expected-evolution-in-the-longer-term--2-years">Expected evolution in the longer term (&gt; 2 years)</a></h2>
+<p>Revise DMH annually or when needed.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="structuring-and-documenting-data-for-efficient-discovery-and-use"><a class="header" href="#structuring-and-documenting-data-for-efficient-discovery-and-use">Structuring and Documenting Data for Efficient Discovery and Use</a></h1>
+<h2 id="purpose-1"><a class="header" href="#purpose-1">Purpose</a></h2>
+<p>In order to properly find, understand and use geophysical data, standardised encoding and documentation are required, i.e., metadata.</p>
+<p>Both discovery metadata and use metadata can be embedded in the files produced for a dataset through utilisation of self-explaining file formats. If properly done by the data producer, publication and preservation of data through services is simplified and can be automated.
+2.2. Implementation</p>
+<p>An essential prerequisite for structuring and documenting data is the specification of the dataset(s), cf. Section 1.1.3. The dataset is the basic building block of our data management model; all the documentation and services described in this DMH are built on datasets. The dataset specification is the first step in structuring one’s data for efficient management, and it is mandatory.</p>
+<h2 id="structuring-and-documenting-data-at-insert-organisation-here"><a class="header" href="#structuring-and-documenting-data-at-insert-organisation-here">Structuring and documenting data at [insert organisation here]</a></h2>
+<h3 id="current-practice-in-structuring-and-documenting-data"><a class="header" href="#current-practice-in-structuring-and-documenting-data">Current practice in structuring and documenting data</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Supported file formats/structures</th><th style="text-align: left">Datatype</th><th style="text-align: left">Available metadata</th><th style="text-align: left">Examples</th></tr></thead><tbody>
+<tr><td style="text-align: left">Comments</td><td style="text-align: left"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left"></td><td style="text-align: left"></td><td style="text-align: left"></td><td style="text-align: left"></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h2 id="data-management-roles-and-responsibilities"><a class="header" href="#data-management-roles-and-responsibilities">Data management roles and responsibilities</a></h2>
+<h3 id="context"><a class="header" href="#context">Context</a></h3>
+<p>Data is processed and interpreted to generate knowledge (e.g., about the weather) for end users. The knowledge can be presented as information in the form of actual data, illustrations, text or other forms of communication. In this context, an illustration is a representation of data, whereas data means the numerical values needed to analyse and interpret a natural process (i.e., calibrated or with calibration information; it must be possible to understand the meaning of the numerical value from the available and machine-readable information).</p>
+<p>Advanced users typically consume some type of data in order to process and interpret it, and produce new knowledge, e.g., in the form of a new dataset or other information. The datasets can be organised in different levels, such as the <a href="https://codes.wmo.int/wmdr/_SourceOfObservation">WMO WIGOS definition for levels of data</a>. Less advanced users apply information based on data (e.g., an illustration) to make decisions (e.g., clothing adapted to the forecast weather).</p>
+<p>Between the data providers and data consumers are the processes that manage and deliver the datasets (Figure 1). A number of human roles may be defined with responsibilities that, together, ensure that these processes are carried out in accordance with the data management requirements of the organisation. The definition and filling of these roles depend heavily on the particular organisation, and each organisation must devise its own best solution.</p>
+<p><img src="https://github.com/S-ENDA/data-management-handbook/blob/master/source/images/value_chain.png" alt="value_chain" /></p>
+<p><em>Figure 1. Value chain for data</em></p>
+<h3 id="data-management-at-met-norway"><a class="header" href="#data-management-at-met-norway">Data management at MET Norway</a></h3>
+<p>At MET Norway, data have always been managed, albeit in a rather narrow technical sense. The main focus has been on storage, primarily for operational data. More recently, the issues of delivering, sharing and reusing data have steadily gained prominence. Still, the legacy of data storage systems built up over many years is an important factor in any uniform data management program.</p>
+<p>During the International Polar Year (<a href="https://public.wmo.int/en/bulletin/international-polar-year-2007-2008">IPY</a>), MET Norway was the international coordinator for operational data. IPY data management was based on the principle of distributed data management through exchange of standardised descriptions of datasets between contributing data centres.</p>
+<p>At the global level, the institute is the primary representative for Norway in the <a href="https://public.wmo.int/en">WMO</a>. WMO has in recent years reorganised its approach to documenting and sharing data through two major activities: <a href="https://community.wmo.int/en/activity-areas/wis">WIS</a> and <a href="https://community.wmo.int/en/activity-areas/WIGOS">WIGOS</a>. Both are metadata-driven activities that follow the same principles as <a href="https://www.geonorge.no/en/">Geonorge</a> and <a href="https://inspire.ec.europa.eu/">INSPIRE</a>, although there are differences concerning standards required.</p>
+<h3 id="data-management-at-niva"><a class="header" href="#data-management-at-niva">Data management at NIVA</a></h3>
+<h3 id="data-management-at-nilu"><a class="header" href="#data-management-at-nilu">Data management at NILU</a></h3>
+<h3 id="data-management-at-nina"><a class="header" href="#data-management-at-nina">Data management at NINA</a></h3>
+<h3 id="contacts-and-roles"><a class="header" href="#contacts-and-roles">Contacts and roles</a></h3>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Institute</th><th style="text-align: left">Responsible Personnel</th><th style="text-align: left">Role</th><th style="text-align: left">Description</th><th style="text-align: left">Contact</th></tr></thead><tbody>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Dag Hjerman</td><td style="text-align: left">Environmental Data Science Section Leader</td><td style="text-align: left">Projects, colaborations</td><td style="text-align: left">dhj@niva.no</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Zofia Rudjord</td><td style="text-align: left">Technical Group Lead</td><td style="text-align: left">NIVACloud, loggers, technical inquiries</td><td style="text-align: left">Zofia.Rudjord@niva.no</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Ivana Huskova</td><td style="text-align: left">Data Specialist</td><td style="text-align: left">Data management planning; Documentation and architecture; Data workflow improvements; data QC procedures</td><td style="text-align: left">ivana.huskova@niva.no</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Kim Leirvik</td><td style="text-align: left">Systems developer</td><td style="text-align: left">Datasets, NIVAcloud, Data Management, NetCDF, Thredds server</td><td style="text-align: left">kim.leirvik@niva.no</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Viviane Girardin</td><td style="text-align: left">Systems engineer</td><td style="text-align: left">LIMS or any lab-related data , Shiny, R, Data Management</td><td style="text-align: left">viviane.girardin@niva.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Kjetil Tørseth</td><td style="text-align: left">Research Director – Atmosphere and Climate Research</td><td style="text-align: left">Overall responsibility for <a href="acronym.html">EBAS</a> at NILU</td><td style="text-align: left">kt@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left"></td><td style="text-align: left"><a href="acronym.html">EBAS</a> data curator(s)</td><td style="text-align: left">Curation and quality assurance of EBAS data</td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left"></td><td style="text-align: left"><a href="acronym.html">EBAS</a> scientific expert(s)</td><td style="text-align: left">Scientific responsible for certain components of EBAS data</td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Paul Eckhart</td><td style="text-align: left">Senior system developer</td><td style="text-align: left">EBAS database architecture and core software development</td><td style="text-align: left">pe@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Markus Fiebig</td><td style="text-align: left">Senior scientist</td><td style="text-align: left">Director of ACTRIS In Situ Data Centre unit, Vocabulary</td><td style="text-align: left">mf@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Cathrine Lund Myhre</td><td style="text-align: left">Senior scientist</td><td style="text-align: left">Director ACTRIS Data Centre</td><td style="text-align: left">clm@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Wenche Aas</td><td style="text-align: left">Senior scientist</td><td style="text-align: left">Responsible for work related to the Chemical Co-ordinating Centre of EMEP (CCC)</td><td style="text-align: left">wa@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Ann Mari Fjæraa</td><td style="text-align: left">Senior scientist</td><td style="text-align: left">Responsible for work related to EVDC project</td><td style="text-align: left">amf@nilu.no</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Richard Rud</td><td style="text-align: left">System developer</td><td style="text-align: left">Responsible for the ACTRIS data portal</td><td style="text-align: left">ror@nilu.no</td></tr>
+<tr><td style="text-align: left">NINA</td><td style="text-align: left">Roald Vang</td><td style="text-align: left">Technical group lead</td><td style="text-align: left">Steering group, Project overview</td><td style="text-align: left">roald.vang@nina.no</td></tr>
+<tr><td style="text-align: left">NINA</td><td style="text-align: left">Matteo De Stefano</td><td style="text-align: left">Data Engineer</td><td style="text-align: left">Data management, Documentation, Vocabularies</td><td style="text-align: left">matteo.destefano@nina.no</td></tr>
+<tr><td style="text-align: left">NINA</td><td style="text-align: left">Francesco Frassinelli</td><td style="text-align: left">Data Engineer</td><td style="text-align: left">Data Management, System Architecture</td><td style="text-align: left">francesco.frassinelli@nina.no</td></tr>
+<tr><td style="text-align: left">NINA</td><td style="text-align: left">Frode Thomassen Singsaas</td><td style="text-align: left">Librarian</td><td style="text-align: left">Vocabularies</td><td style="text-align: left">frode.singsaas@nina.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left">The directors of MET, headed by the Director General,  Roar Skålin</td><td style="text-align: left">Steering Group</td><td style="text-align: left">Responsible for prioritisation,strategic decisions, and resource commitment from the Departments.</td><td style="text-align: left">roars@met.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left">Morten Wergeland Hansen</td><td style="text-align: left">Data Manager</td><td style="text-align: left">Has the overall responsibility for ensuring that the institute’s data management regime is implemented and followed throughout the organisation. The DM is located in the Research and Development Department,Division for Remote Sensing and Data Management (RSDM).</td><td style="text-align: left">mortenwh@met.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left">Solfrid Agersten, Værvarslingsdivisjonen<br> Nina Elisabeth Larsgård, Observasjons- og klimadivisjonen<br> Eivind Støylen, Senter for utvikling av varslingstjenesten<br> Jan Ivar Pladsen, IT-divisjonen</td><td style="text-align: left">Data Management Group</td><td style="text-align: left">The Data Management Group (DMG) provides support to the DM, project managers and line managers for the execution of his/her duties and acts as local points of contact for data management in the organisation.</td><td style="text-align: left">solfrida@met.no<br> ninael@met.no<br> eivinds@met.no<br> janip@met.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left">Gjermund Mamen Haugen, Værvarslingsdivisjonen <br> Lara Ferrighi, Forsknings og utviklingsdivisjonen - Fjernmåling og Dataforvaltning (FoU-FD) <br> Erik Totlund, IT-divisjonen</td><td style="text-align: left">Service Organisation</td><td style="text-align: left">The Service Organisation (SO) is responsible for operation,technical development and platform management of the services for long-term data.</td><td style="text-align: left">gjermundmh@met.no<br> laraf@met.no<br> erikt@met.no</td></tr>
+<tr><td style="text-align: left">MET</td><td style="text-align: left"></td><td style="text-align: left">Remote Sensing and Data Management department</td><td style="text-align: left">The RSDM maintains the responsibility for alignment and coordination with national and international standardisation efforts and modern data management procedures, with participation of other units as required.</td><td style="text-align: left"></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h2 id="practical-guides"><a class="header" href="#practical-guides">Practical guides</a></h2>
+<h3 id="create-a-data-management-plan-dmp"><a class="header" href="#create-a-data-management-plan-dmp">Create a Data Management Plan (DMP)</a></h3>
+<p>The funding agency of your project will usually provide requirements, guidelines or a template for the DMP. If this is not the case, Science Europe offers a comprehensive <a href="https://www.forskningsradet.no/contentassets/e4cd6d2c23cf49d4989bb10c5eea087a/se_rdm_practical_guide_final.pdf">Practical guide of research data management</a>.</p>
+<p>For researchers with no or little experience in data management, a simple way of creating a DMP is with <a href="https://www.sigma2.no/data-planning">EasyDMP</a></p>
+<h3 id="using-easydmp"><a class="header" href="#using-easydmp">Using easyDMP</a></h3>
+<ol>
+<li>
+<p>Log in to easyDMP, use Dataporten if your institution supports that, otherwise pick one of the other login methods.</p>
+</li>
+<li>
+<p>Click on + Create a new plan and pick a template</p>
+</li>
+<li>
+<p>By using the Summary button from page two and on, you can get an overview of all the questions.</p>
+</li>
+</ol>
+<p><em>Publishing the plan</em></p>
+<p>Currently you can use the export function in easyDMP to download an HTML or PDF version of the DMP and use it further. This might change if &quot;Hosted DMP&quot; gets implemented.</p>
+<h1 id="practical-guides-1"><a class="header" href="#practical-guides-1">Practical guides</a></h1>
+<h1 id="references"><a class="header" href="#references">References</a></h1>
+<h1 id="glossary-of-terms-and-names"><a class="header" href="#glossary-of-terms-and-names">Glossary of Terms and Names</a></h1>
+<h2 id="metadata-types"><a class="header" href="#metadata-types">Metadata types</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-services"><a class="header" href="#data-services">Data Services</a></h1>
+<p>The purpose of this chapter is to describe services that benefit from the standardisation performed in the previous step. The information structures described in the previous chapter pave the way for efficient data discovery and use through tools and automated services. Implementation of the services must be in line with the institute’s delivery architecture.</p>
+<p>Data services include:</p>
+<ul>
+<li>
+<p>Data ingestion, storing the data in the proper locations for long term preservation and sharing;</p>
+</li>
+<li>
+<p>Data cataloging, extracting the relevant information for proper discovery of the data;</p>
+</li>
+<li>
+<p>Configuration of visualisation and data publication services (e.g., OGC WMS and OpeNDAP).</p>
+</li>
+</ul>
+<h2 id="implementation"><a class="header" href="#implementation">Implementation</a></h2>
+<p>When planning and implementing data services, there are a number of external requirements that constrain choices, especially if reuse of solutions nationally and internationally is intended and wanted for the data in question. At the national level, important constraints are imposed by the national implementation of the INSPIRE directive through Norge digitalt.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="user-portals-and-documentation"><a class="header" href="#user-portals-and-documentation">User Portals and Documentation</a></h1>
+<p>A portal is an entry point for data consumers, enabling them to discover and search for datasets and services independently.</p>
+<p>On the table below you will find a list of relevant portals where data from S-ENDA partners are available</p>
+<h2 id="user-portals-relevant-to-s-enda-partners"><a class="header" href="#user-portals-relevant-to-s-enda-partners">User portals relevant to S-ENDA partners</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">User portal</th><th style="text-align: left">Description</th><th style="text-align: left">Service type</th><th style="text-align: left">Data Producer</th></tr></thead><tbody>
+<tr><td style="text-align: left"><a href="https://www.geonorge.no/">Geonorge</a></td><td style="text-align: left">Public map catalogue</td><td style="text-align: left">Access</td><td style="text-align: left">Geonorge</td></tr>
+<tr><td style="text-align: left"><a href="https://adc.met.no/">Arctic Data Center</a></td><td style="text-align: left">The Arctic Data Centre (ADC) is a service provided by the Norwegian Meteorological Institute (MET) and is a legacy of the International Polar Year (IPY) when MET coordinated operational data streams internationally and research data nationally.</td><td style="text-align: left">Search, Visualization</td><td style="text-align: left">MET, NILU, NIVA, NINA, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://www.met.no/frie-meteorologiske-data">The MET Portal </a></td><td style="text-align: left">Static signpost that contains guidance and textual documentation of the data and services.</td><td style="text-align: left">Search, Access, Visualization</td><td style="text-align: left">MET</td></tr>
+<tr><td style="text-align: left"><a href="https://thredds.t.niva.no/thredds/info/serverInfo.html">NIVA's THREDDS Data Server</a></td><td style="text-align: left">Timeseries data. Still under development (test server)</td><td style="text-align: left">Access</td><td style="text-align: left">NIVA</td></tr>
+<tr><td style="text-align: left"><a href="https://aquamonitor.niva.no/portal/">Aquamonitor</a></td><td style="text-align: left">Water monitoring system</td><td style="text-align: left">Access, Visualization</td><td style="text-align: left">NIVA</td></tr>
+<tr><td style="text-align: left"><a href="https://vannmiljo.miljodirektoratet.no/">Vannmiljø</a></td><td style="text-align: left">Vannmiljø is the environmental authorities' specialist system for recording and analyzing the state of water, and plays a central role in the planning and implementation of all monitoring activities that follow from the water regulations. Data will, however, be available for all cases where information on the state and development of the water environment quality is requested.</td><td style="text-align: left">Search, Access</td><td style="text-align: left">Miljødirektoratet, NIVA, others</td></tr>
+<tr><td style="text-align: left"><a href="https://dome.ices.dk/ohat/">ICES DOME</a></td><td style="text-align: left">Data portal used by <a href="https://www.ospar.org/">OSPAR</a>, <a href="https://helcom.fi/">HELCOM</a>, <a href="https://www.amap.no/">AMAP</a>, and Expert Groups in the management of chemical and biological data for regional marine assessments.</td><td style="text-align: left">Search</td><td style="text-align: left">NIVA, others</td></tr>
+<tr><td style="text-align: left"><a href="https://https://geodata.nina.no/">NINA Geodata Portal</a></td><td style="text-align: left">Geodata Portal</td><td style="text-align: left">Access, Visualization</td><td style="text-align: left">NINA</td></tr>
+<tr><td style="text-align: left"><a href="https://ebas-data.nilu.no/">EBAS Data Portal</a></td><td style="text-align: left"><a href="https://ebas.nilu.no/">EBAS</a> is a database infrastructure operated by NILU. It's main objective is to handle, store and disseminate atmospheric composition data generated by international and national frameworks such as <a href="https://www.emep.int/">EMEP</a>, <a href="https://public.wmo.int/en/programmes/global-atmosphere-watch-programme">GAW</a>, <a href="https://www.actris.eu/">ACTRIS</a></td><td style="text-align: left">Search, Access, Visualization</td><td style="text-align: left">NILU, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://ebas-nrt.nilu.no/">EBAS Near-Real-Time Data</a></td><td style="text-align: left">Visualization of NRT data in EBAS</td><td style="text-align: left">Visualization</td><td style="text-align: left">NILU, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://actris.nilu.no/">ACTRIS Data Portal</a></td><td style="text-align: left">Data Portal for all data from the Aerosol, Clouds and Trace Gases Research Infrastructure (<a href="https://www.amap.no/">ACTRIS</a>), where NILU is leading the DVAS and In-Situ Data Centre units</td><td style="text-align: left">Search, Access, Visualization</td><td style="text-align: left">NILU, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://thredds.nilu.no/thredds/catalog.html">NILU's THREDDS Server</a></td><td style="text-align: left">THREDDS Server to access EBAS data and NRT products from EBAS and <a href="https://www.actris.eu/">ACTRIS</a></td><td style="text-align: left">M2M Access</td><td style="text-align: left">NILU, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://luftkvalitet.nilu.no/">Luftkvalitetsdatabasen</a></td><td style="text-align: left">Data portal with air quality measurements from norwegian measurement stations</td><td style="text-align: left">Search, Access, Visualization, Maps</td><td style="text-align: left">NILU, Miljødirektoratet, Norwegian municipalies</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><div class="table-wrapper"><table><thead><tr><th style="text-align: left">Acronym</th><th style="text-align: left">Meaning</th></tr></thead><tbody>
+<tr><td style="text-align: left">ACDD</td><td style="text-align: left">Attribute Convention for Dataset Discovery RD5</td></tr>
+<tr><td style="text-align: left">ADC</td><td style="text-align: left">Arctic Data Centre (ADC)</td></tr>
+<tr><td style="text-align: left">AeN</td><td style="text-align: left">Arven etter Nansen (English: Nansen Legacy)</td></tr>
+<tr><td style="text-align: left">BUFR</td><td style="text-align: left">Binary Universal Form for the Representation of meteorological data. WMO standard format for binary data, particularly for non-gridded data (BUFR)</td></tr>
+<tr><td style="text-align: left">CDM</td><td style="text-align: left">Unidata Common Data Model (CDM)</td></tr>
+<tr><td style="text-align: left">CF</td><td style="text-align: left">Climate and Forecast Metadata Conventions (CF)</td></tr>
+<tr><td style="text-align: left">CMS</td><td style="text-align: left">Content Management System</td></tr>
+<tr><td style="text-align: left">CSW</td><td style="text-align: left">Catalog Service for the Web (CSW)</td></tr>
+<tr><td style="text-align: left">DAP</td><td style="text-align: left">Data access protocol (DAP)</td></tr>
+<tr><td style="text-align: left">DBMS</td><td style="text-align: left">DataBase Management System (DBMS)</td></tr>
+<tr><td style="text-align: left">DIANA</td><td style="text-align: left">Digital Analysis tool for visualisation of geodata, open source from MET Norway (DIANA)</td></tr>
+<tr><td style="text-align: left">diana-WMS</td><td style="text-align: left">WMS implementation in DIANA</td></tr>
+<tr><td style="text-align: left">DIAS</td><td style="text-align: left">Copernicus Data and Information Access Services (DIAS)</td></tr>
+<tr><td style="text-align: left">DIF</td><td style="text-align: left">Directory Interchange Format of GCMD (DIF)</td></tr>
+<tr><td style="text-align: left">DLM</td><td style="text-align: left">Data life cycle management (DLM)</td></tr>
+<tr><td style="text-align: left">DM</td><td style="text-align: left">Data Manager</td></tr>
+<tr><td style="text-align: left">DMH</td><td style="text-align: left">Data Management Handbook (this document)</td></tr>
+<tr><td style="text-align: left">DMCG</td><td style="text-align: left">Data Management Coordination Group</td></tr>
+<tr><td style="text-align: left">DMP</td><td style="text-align: left">Data Management Plan (DMP definition, easyDMP tool)</td></tr>
+<tr><td style="text-align: left">DOI</td><td style="text-align: left">Digital Object Identifier (DOI)</td></tr>
+<tr><td style="text-align: left">EBAS</td><td style="text-align: left">Database with atmospheric measurement data at NILU</td></tr>
+<tr><td style="text-align: left">eduGAIN</td><td style="text-align: left">The Global Academic Interfederation Service (eduGAIN)</td></tr>
+<tr><td style="text-align: left">ENVRI</td><td style="text-align: left">European Environmental Research Infrastructures (ENVRI)</td></tr>
+<tr><td style="text-align: left">ENVRI FAIR</td><td style="text-align: left">Making the ENV RIs data services FAIR.&quot; A proposal to the EU’s Horizon 2020 call INFRAEOSC-04</td></tr>
+<tr><td style="text-align: left">EOSC</td><td style="text-align: left">European Open Science Cloud (EOSC)</td></tr>
+<tr><td style="text-align: left">ERDDAP</td><td style="text-align: left">NOAA Environmental Research Division Data Access Protocol (ERDDAP)</td></tr>
+<tr><td style="text-align: left">ESA</td><td style="text-align: left">European Space Agency (ESA)</td></tr>
+<tr><td style="text-align: left">ESGF</td><td style="text-align: left">Earth System Grid Federation (ESGF)</td></tr>
+<tr><td style="text-align: left">EWC</td><td style="text-align: left">European Weather Cloud ()</td></tr>
+<tr><td style="text-align: left">FAIR</td><td style="text-align: left">Findability, Accessibility, Interoperability and Reusability RD3</td></tr>
+<tr><td style="text-align: left">FEIDE</td><td style="text-align: left">Identity Federation of the Norwegian National Research and Education Network (UNINETT) (FEIDE)</td></tr>
+<tr><td style="text-align: left">FFI</td><td style="text-align: left">Norwegian Defence Research Establishment (FFI)</td></tr>
+<tr><td style="text-align: left">FORCE11</td><td style="text-align: left">Future of Research Communication and e-Scholarship (FORCE11)</td></tr>
+<tr><td style="text-align: left">GCMD</td><td style="text-align: left">Global Change Master Directory (GCMD)</td></tr>
+<tr><td style="text-align: left">GCW</td><td style="text-align: left">Global Cryosphere Watch (GCW)</td></tr>
+<tr><td style="text-align: left">GeoAccessNO</td><td style="text-align: left">An NFR-funded infrastructure project, 2015- (GeoAccessNO)</td></tr>
+<tr><td style="text-align: left">GIS</td><td style="text-align: left">Geographic Information System</td></tr>
+<tr><td style="text-align: left">GRIB</td><td style="text-align: left">GRIdded Binary or General Regularly-distributed Information in Binary form. WMO standard file format for gridded data (GRIB)</td></tr>
+<tr><td style="text-align: left">HDF, HDF5</td><td style="text-align: left">Hierarchical Data Format (HDF)</td></tr>
+<tr><td style="text-align: left">Hyrax</td><td style="text-align: left">OPeNDAP 4 Data Server (Hyrax)</td></tr>
+<tr><td style="text-align: left">IMR</td><td style="text-align: left">Institute of Marine Research (IMR)</td></tr>
+<tr><td style="text-align: left">INSPIRE</td><td style="text-align: left">Infrastructure for Spatial Information in Europe (INSPIRE)</td></tr>
+<tr><td style="text-align: left">ISO 19115</td><td style="text-align: left">ISO standard for geospatial metadata (ISO 19115-1:2014).</td></tr>
+<tr><td style="text-align: left">IPY</td><td style="text-align: left">International Polar Year (IPY)</td></tr>
+<tr><td style="text-align: left">JRCC</td><td style="text-align: left">Joint Rescue Coordination centre (Hovedredningssentralen)</td></tr>
+<tr><td style="text-align: left">KDVH</td><td style="text-align: left">KlimaDataVareHus</td></tr>
+<tr><td style="text-align: left">KPI</td><td style="text-align: left">Key Performance Indicator (KPI)</td></tr>
+<tr><td style="text-align: left">METCIM</td><td style="text-align: left">MET Norway Crisis and Incident Management (METCIM)</td></tr>
+<tr><td style="text-align: left">METSIS</td><td style="text-align: left">MET Norway Scientific Information System</td></tr>
+<tr><td style="text-align: left">MMD</td><td style="text-align: left">Met.no Metadata Format MMD</td></tr>
+<tr><td style="text-align: left">MOAI</td><td style="text-align: left">Meta Open Archives Initiative server (MOAI)</td></tr>
+<tr><td style="text-align: left">ncWMS</td><td style="text-align: left">WMS implementation for NetCDF files (ncWMS)</td></tr>
+<tr><td style="text-align: left">NERSC</td><td style="text-align: left">Nansen Environmental and Remote Sensing Center (NERSC)</td></tr>
+<tr><td style="text-align: left">NetCDF</td><td style="text-align: left">Network Common Data Format (NetCDF)</td></tr>
+<tr><td style="text-align: left">NetCDF/CF</td><td style="text-align: left">A common combination of NetCDF file format with CF-compliant attributes.</td></tr>
+<tr><td style="text-align: left">NFR</td><td style="text-align: left">The Research Council of Norway (NFR)</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Norwegian Institute for Air Research (NILU)</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Norwegian Institute for Water Research (NIVA)</td></tr>
+<tr><td style="text-align: left">NMDC</td><td style="text-align: left">Norwegian Marine Data Centre, NFR-supported infrastructure project 2013-2017 (NMDC)</td></tr>
+<tr><td style="text-align: left">NorDataNet</td><td style="text-align: left">Norwegian Scientific Data Network, an NFR-funded project 2015-2020 (NorDataNet)</td></tr>
+<tr><td style="text-align: left">Norway Digital</td><td style="text-align: left">Norwegian national spatial data infrastructure organisation (Norway Digital). Norwegian: Norge digitalt</td></tr>
+<tr><td style="text-align: left">NORMAP</td><td style="text-align: left">Norwegian Satellite Earth Observation Database for Marine and Polar Research, an NFR-funded project 2010-2016 (NORMAP)</td></tr>
+<tr><td style="text-align: left">NRPA</td><td style="text-align: left">Norwegian Radiation Protection Authority (NRPA)</td></tr>
+<tr><td style="text-align: left">NSDI</td><td style="text-align: left">National Spatial Data Infrastructure, USA (NSDI)</td></tr>
+<tr><td style="text-align: left">NVE</td><td style="text-align: left">Norwegian Water Resources and Energy Directorate (NVE)</td></tr>
+<tr><td style="text-align: left">NWP</td><td style="text-align: left">Numerical Weather Prediction</td></tr>
+<tr><td style="text-align: left">OAI-PMH</td><td style="text-align: left">Open Archives Initiative - Protocol for Metadata Harvesting (OAI-PMH)</td></tr>
+<tr><td style="text-align: left">OAIS</td><td style="text-align: left">Open Archival Information System (OAIS)</td></tr>
+<tr><td style="text-align: left">OCEANOTRON</td><td style="text-align: left">Web server dedicated to the dissemination of ocean in situ observation data collections (OCEANOTRON)</td></tr>
+<tr><td style="text-align: left">OECD</td><td style="text-align: left">The organisation for Economic Co-operation and Developement. OECD</td></tr>
+<tr><td style="text-align: left">OGC</td><td style="text-align: left">Open Geospatial Consortium (OGC)</td></tr>
+<tr><td style="text-align: left">OGC O&amp;M OGC</td><td style="text-align: left">Observations and Measurements standard (OGC O&amp;M)</td></tr>
+<tr><td style="text-align: left">OLA</td><td style="text-align: left">Operational-level Agreement (OLA)</td></tr>
+<tr><td style="text-align: left">OPeNDAP</td><td style="text-align: left">Open-source Project for a Network Data Access Protocol (OPeNDAP) - reference server implementation</td></tr>
+<tr><td style="text-align: left">PID</td><td style="text-align: left">Persistent Identifier (PID)</td></tr>
+<tr><td style="text-align: left">RM-ODP</td><td style="text-align: left">Reference Model of Open Distributed Processing (RM-ODP)</td></tr>
+<tr><td style="text-align: left">PROV</td><td style="text-align: left">A W3C Working Group on provenance and a Family of Documents (PROV)</td></tr>
+<tr><td style="text-align: left">SAON</td><td style="text-align: left">Sustaining Arctic Observing Networks (SAON/IASC)</td></tr>
+<tr><td style="text-align: left">SDI</td><td style="text-align: left">Spatial Data Infrastructure</td></tr>
+<tr><td style="text-align: left">SDN</td><td style="text-align: left">SeaDataNet, Pan-European infrastructure for ocean &amp; marine data management</td></tr>
+<tr><td style="text-align: left">SIOS</td><td style="text-align: left">Svalbard Integrated Arctic Earth Observing System</td></tr>
+<tr><td style="text-align: left">SIOS-KC</td><td style="text-align: left">SIOS Knowledge Centre, an NFR-supported project 2015-2018 (SIOS-KC)</td></tr>
+<tr><td style="text-align: left">SKOS</td><td style="text-align: left">Simple Knowledge Organization System (SKOS)</td></tr>
+<tr><td style="text-align: left">SLA</td><td style="text-align: left">Service-level Agreement (SLA)</td></tr>
+<tr><td style="text-align: left">SolR</td><td style="text-align: left">Apache Enterprise search server with a REST-like API (SolR)</td></tr>
+<tr><td style="text-align: left">StInfoSys</td><td style="text-align: left">MET Norway’s Station Information System</td></tr>
+<tr><td style="text-align: left">TDS</td><td style="text-align: left">THREDDS Data Server (TDS)</td></tr>
+<tr><td style="text-align: left">THREDDS</td><td style="text-align: left">Thematic Real-time Environmental Distributed Data Services</td></tr>
+<tr><td style="text-align: left">UNSDI</td><td style="text-align: left">United Nations Spatial Data Infrastructure (UNSDI)</td></tr>
+<tr><td style="text-align: left">UUID</td><td style="text-align: left">Universally Unique Identifier (UUID)</td></tr>
+<tr><td style="text-align: left">W3C</td><td style="text-align: left">World Wide Web Consortium (W3C)</td></tr>
+<tr><td style="text-align: left">WCS</td><td style="text-align: left">OGC Web Coverage Service (WCS)</td></tr>
+<tr><td style="text-align: left">WFS</td><td style="text-align: left">OGC Web Feature Service (WFS)</td></tr>
+<tr><td style="text-align: left">WIGOS</td><td style="text-align: left">WMO Integrated Global Observing System (WIGOS)</td></tr>
+<tr><td style="text-align: left">WIS</td><td style="text-align: left">WMO Information System (WIS)</td></tr>
+<tr><td style="text-align: left">WMO</td><td style="text-align: left">World Meteorological Organisation (WMO)</td></tr>
+<tr><td style="text-align: left">WMS</td><td style="text-align: left">OGC Web Map Service (WMS)</td></tr>
+<tr><td style="text-align: left">WPS</td><td style="text-align: left">OGC Web Processing Service (WPS)</td></tr>
+<tr><td style="text-align: left">YOPP</td><td style="text-align: left">Year of Polar Prediction (YOPP Data Portal)</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h2 id="metadata-types-1"><a class="header" href="#metadata-types-1">Metadata types</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Type</th><th style="text-align: left">Purpose</th><th style="text-align: left">Description</th><th style="text-align: left">Examples</th></tr></thead><tbody>
+<tr><td style="text-align: left">Discovery metadata</td><td style="text-align: left">Used to find relevant data</td><td style="text-align: left">Discovery metadata are also called index metadata and are a digital version of the library index card. They describe who did what, where and when, how to access data and potential constraints on the data. They shall also link to further information on the data, such as site metadata.</td><td style="text-align: left">ISO 19115; GCMD/DIF</td></tr>
+<tr><td style="text-align: left">Use metadata</td><td style="text-align: left">Used to understand data found</td><td style="text-align: left">Use metadata describes the actual content of a dataset and how it is encoded. The purpose is to enable the user to understand the data without any further communication. They describe the content of variables using standardised vocabularies, units of variables, encoding of missing values, map projections, etc.</td><td style="text-align: left">Climate and Forecast (CF) Convention; BUFR; GRIB</td></tr>
+<tr><td style="text-align: left">Site metadata</td><td style="text-align: left">Used to understand data found</td><td style="text-align: left">Site metadata are used to describe the context of observational data. They describe the location of an observation, the instrumentation, procedures, etc. To a certain extent they overlap with discovery metadata, but also extend discovery metadata. Site metadata can be used for observation network design. Site metadata can be considered a type of use metadata.</td><td style="text-align: left">WIGOS; OGC O&amp;M</td></tr>
+<tr><td style="text-align: left">Configuration metadata</td><td style="text-align: left">Used to tune portal services for datasets intended for data consumers (e.g., WMS)</td><td style="text-align: left">Configuration metadata are used to improve the services offered through a portal to the user community. This can, e.g., be how to best visualise a product.</td><td style="text-align: left"></td></tr>
+<tr><td style="text-align: left">System metadata</td><td style="text-align: left">Used to understand the technical structure of the data management system and track changes in it</td><td style="text-align: left">System metadata covers, e.g., technical details of the storage system, web services, their purpose and how they interact with other components of the data management system, available and consumed storage, number of users and other KPI elements etc.</td><td style="text-align: left"></td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
