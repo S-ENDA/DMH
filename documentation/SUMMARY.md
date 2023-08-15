@@ -1,9 +1,5 @@
 # Data Manangement Handbook for S-ENDA partners
 
-- [Overview](README.md)
-
----
-
 - [Introduction](Intro.md)
 
 ---
