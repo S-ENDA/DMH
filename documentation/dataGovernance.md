@@ -20,7 +20,7 @@ This DMH recommends the following concepts of life cycle management to be implem
 
 - An institution specific Data Management Handbook (MET has a common template available [here](https://github.com/metno/data-management-handbook));
 
-- Extended discovery metadata for data in internal production chains (these are metadata elements that provide the necessary information for life cycle management just described); and
+- Extended discovery metadata for data in internal production chains (these are metadata elements that provide the necessary information for life cycle management just described);
 
 - A Data Management Plan (DMP) document.
 
@@ -41,5 +41,16 @@ The Research Council (Norges forskningsråd - NFR) has introduced guidelines req
 
 <sup> *1 </sup>The institute has used or uses the service* 
 
+### Example of a Data Management Plan Template
+
+EasyDMP, as an example, is a web tool designed to facilitate and standardize the creation of Data Management Plan (DMP) documents. It can be customized according to specific governance requirements by each institution. It provides a list of questions to be answered by the person responsible for providing the DMP.
+
+An EasyDMP template is divided into sections:
+  - Data Summary -> A general introduction about data types, sources, quantity, targets, context.
+  - FAIR Data -> Expanding on Findability, Accessibility, Interoperability, Reusability.
+  - Allocations of Resources -> Infrastructures, funding, responsible persons.
+  - Data Security -> Does the data require specific restrictions or limited access?
+  - Ethical Aspects -> Any special consideration about the specific ethical implications related to data?
+  - Other -> Any additional information not covered before.
 
 
