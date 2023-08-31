@@ -22,6 +22,13 @@ At the global level, the institute is the primary representative for Norway in t
 ### Data management at NILU
 
 ### Data management at NINA
+NINA focuses on Nature and Human-nature interactions, biodiversity, and terrestrial ecology and requires the management of a wide variety of data from different sources, in multiple formats. Based on specific agreements with national and international partners, some workflows for data sharing were implemented, for example, the species observation data delivered to the Norwegian Biodiversity Information Centre [Artsdatabanken](https://www.biodiversity.no/) reaching the Global Biodiversity Information Facility [GBIF](https://www.gbif.org/), or the Geospatial data delivered to the Norwegian Mapping authority data portal [Geonorge](https://www.geonorge.no/).
+
+Most of the data workflows traditionally follow a project-based approach. Most often data sharing solutions were based on specific project requirements. Data management in the past was scattered with a lack of standardization (with few exceptions) and data was often invisible or unreachable to external stakeholders. 
+
+In time, many different workflows and solutions for storing and organizing data were designed and implemented, with some attempts to centralize the storage of specific data types. Geospatial data was organized in internal file systems with naming conventions, for example, and most of the data stored in centralized databases of growing dimensions.
+
+NINA is currently transitioning to a FAIR data-sharing model, adopting International standards and restructuring the internal policies and workflows for storing, sharing, and delivering data and metadata. Centralized metadata catalogs will allow more distributed data management with optimized solutions for finding, accessing, and processing data. Every new starting project is required to provide a Data Management Plan. 
 
 ### Contacts and roles
 
