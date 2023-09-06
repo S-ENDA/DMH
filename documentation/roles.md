@@ -19,6 +19,16 @@ At the global level, the institute is the primary representative for Norway in t
 
 ### Data management at NIVA
 
+NIVA works with complex data of many:
+
+- Types: biological, ecological, physical, chemical
+- Matrices: water, sediment, biota
+- Sampling methods: sensors/loggers, FerryBox, manual sampling
+- Data structures: time series along transect or in fixed position, classic stations, etc.
+- Environments: rivers, lakes, marine open water, etc.
+
+The complexity of NIVA’s data has been shown to be a challenge when it comes to overall data sharing. Nevertheless, much of our data is available in several data portals such as [Vannmiljø](https://vannmiljo.miljodirektoratet.no/), [Artsdatabanken](https://www.artsdatabanken.no/), and [ICES](https://www.ices.dk/Pages/default.aspx), and NIVA is actively working on making its data more findable and interoperable. We are a partner in many EU projects and data management responsible for some (e.g. [PAPILLONS](https://www.papillons-h2020.eu/)).
+
 ### Data management at NILU
 
 ### Data management at NINA
@@ -35,7 +45,6 @@ NINA is currently transitioning to a FAIR data-sharing model, adopting Internati
 | Institute      | Responsible Personnel                | Role                                                | Description                                                                                                | Contact                  |
 |:---------------|:--------------------|:----------------------------------------------------|:---------------------------------------------------------------------------------------------------------|:-------------------------|
 | NIVA           | Dag Hjerman         | Environmental Data Science Section Leader           | Projects, colaborations                                                                                  | dhj@niva.no              |
-| NIVA           | Zofia Rudjord       | Technical Group Lead                                | NIVACloud, loggers, technical inquiries                                                                  | Zofia.Rudjord@niva.no    |
 | NIVA           | Ivana Huskova       | Data Specialist                                     | Data management planning, Documentation and architecture, Data workflow improvements, vocabulary | ivana.huskova@niva.no    |
 | NIVA           | Kim Leirvik         | Systems developer                                   | Datasets, NIVAcloud, Data Management, NetCDF, Thredds server, systems architecture                                            | kim.leirvik@niva.no      |
 | NIVA           | Viviane Girardin    | Systems engineer                                    | Data Management, S-ENDA's DMH                                               | viviane.girardin@niva.no |
