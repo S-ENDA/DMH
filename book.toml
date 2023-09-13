@@ -12,7 +12,7 @@ create-missing = false
 default-theme = "light"
 preferred-dark-theme = "Ayu"
 git-repository-url = "https://github.com/s-ENDA/dmh"
-edit-url-template = "https://github.com/s-ENDA/dmh/edit/mdbook/{path}"
+edit-url-template = "https://github.com/S-ENDA/DMH/issues/new"
 no-section-label = false
 
 [output.html.fold] 
