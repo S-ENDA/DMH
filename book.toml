@@ -14,6 +14,8 @@ preferred-dark-theme = "Ayu"
 git-repository-url = "https://github.com/s-ENDA/dmh"
 edit-url-template = "https://github.com/S-ENDA/DMH/issues/new"
 no-section-label = false
+additional-css = ["custom.css"]
+
 
 [output.html.fold] 
 enable = true
