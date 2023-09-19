@@ -22,6 +22,6 @@
 
 [Acronyms](acronym.md)
 
-[Metadata Types](metadata.md)
+[Glossary](glossary.md)
 
 ---
