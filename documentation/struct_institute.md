@@ -38,3 +38,18 @@ There are several types of dynamical geodata at NILU.
 |EBAS NasaAmes | NasaAmes1001 / ASCII | [EBAS metadata elements](https://ebas-submit.nilu.no/templates/comments/ebas_metadata_elements) | |
 |NetCDF| | | |
 |Comments| | | |
+
+
+## NIVA
+
+### Current practice
+
+Data are usually stored in databases like oracle or for newer dataflows in postgresql. Some of this data is publicly available through [aquamonitor](https://aquamonitor.niva.no) or for visualization using [superset](https://superset.p.niva.no). 
+
+#### Time Series
+
+Loggers are a large source of time series data at NIVA and stored in a DBMS solution. Some of the data is shared with partners using a REST-API. For public access NIVA can share timeseries using OPeNDAP and the C&F convention.
+
+#### Trajectories
+
+Sensors placed onboard ships, ferryboxes, are typical trajectories sampled by NIVA. For trajectories, metadata is stored in a NoSQL solution, while data is stored in a postgresql database following an internal schema. A REST-API is used to share data upon request, while an internal approval process is used before publishing data for public access. When published, data can be shared through OPeNDAP and following the C&F convention. 
