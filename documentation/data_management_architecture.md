@@ -26,3 +26,11 @@ FAIR data requires the smart use of various systems and solutions that are in co
 |SIOS sensor buoy in Adventfjorden|<ul><li>Variables: temperature, conductivity, salinity, turbidity, fDOM, chlorophyll, oxygen and light backscattering; <li> Time period per data set: <li>graphical division/coverage: point|NetCDF|CF-NETCDF|ACDD xml/NetCDF| | |thredds.t.niva.no|Machine search service: ogc csw through adc.met.no |; Human search service: adc.met.no
 |MULTISOURCE/DigiVEIVANN|<ul><li>Variables:(temperature for inlet), turbidity, water level, conductivity; <li> Time period per data set: 24 hours duration <li> Aggregate dataset: Start - 2022-09-14T11:14:59; End - no time_coverage_end (continuously adding new data)<li>graphical division/coverage: point (two datasets: inlet and outlet at a location in Oslo)|NetCDF|CF-NETCDF|ACDD xml/NetCDF| | |thredds.t.niva.no|Machine search service: ogc csw through adc.met.no, Human search service: adc.met.no|
 
+**NINA**
+
+|Title|Granularity|Data storage format|Storage format for usage metadata|Storage format for search metadata|Storage format for provenance metadata|Visualization service|Access service|Search service|Landing page|
+|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|Norwegian breeding bird monitoring scheme| <ul><li>Variables: Number of observed pairs ; <li>Time period per data set: Start: 2006, End: - ;  <li>Geographical division/coverage: Location accumulated to one common point per assessment route |DarwinCore Archive||Norwegian INSPIRE xml| | |https://ipt.nina.no/| 
+|InsectDB|<ul><li>Variables: <li> Time period per data set: Start: 1821, End: - ;  <li>graphical division/coverage: points|DarwinCore Archive||Norwegian INSPIRE xml| | | [NINA insect database](https://ipt.nina.no/)| [https://ipt.nina.no/resource?r=insectdb](https://ipt.nina.no/resource?r=insectdb) |
+|Skandobs|<ul><li>Variables: <li> Time period per data set: Start: 2001, End: - ;  <li>graphical division/coverage: points|DarwinCore Archive||Norwegian INSPIRE xml| OGC CSW | | ||
+
