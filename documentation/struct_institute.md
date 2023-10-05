@@ -24,7 +24,7 @@ The WMO standard for observations is BUFR, which is also supported but is not se
 
 ## NILU
 ### Current practice
-There are several types of dynamical geodata at NILU.
+
 
 #### Gridded data
 

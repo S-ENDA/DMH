@@ -4,6 +4,12 @@ In order to properly find, understand and use geophysical data, standardised enc
 
 Both discovery metadata and use metadata can be embedded in the files produced for a dataset through utilisation of self-explaining file formats. If properly done by the data producer, publication and preservation of data through services is simplified and can be automated.
 
+To follow FAIR, metadata should: 
+- Clearly and explicitly include the identifier of the data they describe. 
+- Be accessible, even when the data are no longer available. 
+- Be registered or indexed in a searchable resource. 
+- Use a vocabulary that follows FAIR principles. 
+
 ## Metadata types
 
 |Type|Purpose|Description|Examples|
