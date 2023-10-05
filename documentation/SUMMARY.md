@@ -12,6 +12,7 @@
 - [Data management](data_management.md)
   - [Institute-specific data management](data_management_institute.md)
   - [S-ENDA architecture](data_management_architecture.md)
+    - [Dataset formats and specifications](data_management_datasets.md)
   - [Contacts and roles](data_management_contacts_tbl.md)
 
 - [Practical Guides](practicalGuides.md)
