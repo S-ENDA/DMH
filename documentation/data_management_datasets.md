@@ -1,13 +1,4 @@
-## S-ENDA Architecture
-
-FAIR data requires the smart use of various systems and solutions that are in continuous development. Infrastructures, systems, and registers are support functions around the datasets, while fulfillment of the FAIR principles requires that the datasets are well defined and well described. It is therefore important to focus on good definitions of the datasets to ensure availablity, including storage formats and information content. The diagram below defines S-ENDA's architecture.
-
-|![Architecture](src/architecture.png)|
-|:--:| 
-| _The landscape diagram defines integration points between the partners' data infrastructures, included interfaces and metadata formats._ |
-
-
-**Data storage formats and metadata specifications** 
+## Dataset formats and specifications]
 
 The tables below describe the datasets the partners in S-ENDA have agreed to deliver They include storage formats and metadata specifications, as well as architecture drawings with the agreed integration points needed to integrate with geonorge.no and/or the [Arctic Data Center](adc.met.no).
 
