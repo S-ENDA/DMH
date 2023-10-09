@@ -1,6 +1,6 @@
 ## FAIR
 
-The [FAIR](https://www.go-fair.org/fair-principles/) guiding principles for scientific data management illustrate the best practice for sharing open data. They were first set out in the 2016 paper [The FAIR Guiding Principles for scientific data management and stewardship](https://doi.org/10.1038/sdata.2016.18). The principles emphasise machineactionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention) because humans increasingly rely on computational support to deal with data as a result of the increase in volume, complexity, and creation speed of data.
+The [FAIR](https://www.go-fair.org/fair-principles/) guiding principles for scientific data management illustrate the best practice for sharing open data. They were first set out in the 2016 paper [The FAIR Guiding Principles for scientific data management and stewardship](https://doi.org/10.1038/sdata.2016.18). The principles emphasise machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention) because humans increasingly rely on computational support to deal with data as a result of the increase in volume, complexity, and creation speed of data.
 
 |Initials|Description|
 |:----|:----|
