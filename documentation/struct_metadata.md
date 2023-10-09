@@ -18,13 +18,12 @@ could be used in portals where the data is relevant.
 
 
 To follow FAIR, metadata should: 
-- Clearly and explicitly include the identifier of the data they describe. 
-- Be accessible, even when the data are no longer available. 
-- Be registered or indexed in a searchable resource. 
+- Include the data identifier clearly and explicitly.
+- Be registered or indexed in a searchable resource.
+- Be self-explanatory to optimize searchability. 
+- Clearly identify who owns the data. 
 - Use a vocabulary that follows FAIR principles. 
-
-(This is taken from previous text and FAIR webpage. I prefer this one.)
-
+- [Be accessible even when the data are no longer available]( https://www.go-fair.org/fair-principles/a2-metadata-accessible-even-data-no-longer-available/). 
 ## Metadata types
 
 |Type|Purpose|Description|Examples|
