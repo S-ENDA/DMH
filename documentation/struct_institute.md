@@ -14,14 +14,6 @@ Non-gridded data include most observational data like observations at weather st
 
 The WMO standard for observations is BUFR, which is also supported but is not self-describing. The institute also maintains other types of data, like textual representations of the weather forecast. Most of these are currently not in any standard format, a notable exception being newly available warnings in CAP format, which is a WMO/OASIS standard format.
 
-### Current practice in structuring and documenting data
-
-|Supported file formats/structures |Datatype |Available metadata |Examples|
-|:----|:----|:----|:----|
-|Comments|
-| | |
-
-
 ## NILU
 ### Current practice
 There are several types of dynamical geodata at NILU.
