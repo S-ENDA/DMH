@@ -4,6 +4,26 @@ In order to properly find, understand and use geophysical data, standardised enc
 
 Both discovery metadata and use metadata can be embedded in the files produced for a dataset through utilisation of self-explaining file formats. If properly done by the data producer, publication and preservation of data through services is simplified and can be automated.
 
+
+In order to support the FAIR principles, the following guidelines must apply to metadata:
+- Metadata must be self-explanatory and not need additional information. 
+- Metadata must document the quality of data. 
+- Data owners must manage the metadata only in one place. 
+- It must be clear to everyone who is the data owner and responsible for updating metadata. 
+- Geographical data and products with metadata that are not subject to grading regimes shall
+could be used in portals where the data is relevant.
+- Metadata is entered with English and Norwegian as standard
+
+(This is taken from FAIR-veileder by geonorge, but no similar for datasets...)
+
+
+To follow FAIR, metadata should: 
+- Include the data identifier clearly and explicitly.
+- Be registered or indexed in a searchable resource.
+- Be self-explanatory to optimize searchability. 
+- Clearly identify who owns the data. 
+- Use a vocabulary that follows FAIR principles. 
+- [Be accessible even when the data are no longer available]( https://www.go-fair.org/fair-principles/a2-metadata-accessible-even-data-no-longer-available/). 
 ## Metadata types
 
 |Type|Purpose|Description|Examples|
