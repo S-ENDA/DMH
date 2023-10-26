@@ -45,3 +45,17 @@ Loggers are a large source of time series data at NIVA and stored in a DBMS solu
 #### Trajectories
 
 Sensors placed onboard ships, ferryboxes, are typical trajectories sampled by NIVA. For trajectories, metadata is stored in a NoSQL solution, while data is stored in a postgresql database following an internal schema. A REST-API is used to share data upon request, while an internal approval process is used before publishing data for public access. When published, data can be shared through OPeNDAP and following the C&F convention. 
+
+## NINA
+
+### Current practice
+
+Data is stored in multiple formats and structures such as databases, tabular files, geospatial, gridded, images and other.
+
+### Species observation
+
+One of the main type of data is the point observation of species, delivered in the darwin core standard. Sampling of genetic material in nature converges into huge databases of biodiversity genetic data.
+
+### Time series
+
+Automated positioning of individuals by gps devices results in Spatial animal movement data. REgular sureying of the same variables in same locations results in time series of biodiversity data.

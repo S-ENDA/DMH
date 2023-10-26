@@ -1,8 +1,9 @@
 ## Metadata
 
-In order to properly find, understand and use geophysical data, standardised encoding and documentation are required, i.e., metadata. Metadata is a broad concept. In our data management model the term "metadata" is used in several contexts, specifically the five categories: discovery, use, site, configuration, and system metadata.
+Metadata is a broad concept. It provides descriptive, structural, or administrative information about data, facilitating its identification, management, understanding, and use. Metadata is essential for organizing, finding, and understanding the context of data.
 
-Both discovery metadata and use metadata can be embedded in the files produced for a dataset through utilisation of self-explaining file formats. If properly done by the data producer, publication and preservation of data through services is simplified and can be automated.
+In our data management model the term "metadata" is used in several contexts, specifically the five categories: discovery, use, site, configuration, and system metadata.
+
 
 ## Metadata types
 
