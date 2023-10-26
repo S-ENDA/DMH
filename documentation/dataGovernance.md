@@ -2,9 +2,9 @@
 
 ### Purpose
 
-Data governance is the part of data management concerned in defining policies and procedures for maintaining data security and compliance. It describes how we organise and steer data management activities in order to ensure that:
+Data governance is a data management concept that ensures the availability, usability, integrity, and security of organisational data.  It also establishes rules and procedures to ensure data security and compliance thoughout the data life cycle. This chapter explains how we organize and direct data management efforts to ensure that:
 
-- The guidelines are implemented throughout the organisation;
+- Data guidelines are implemented throughout the organisation;
 
 - Data management practices are in line with and contribute to the institute’s strategic aims;
 
@@ -26,7 +26,7 @@ This DMH recommends the following concepts of life cycle management to be implem
 
 The goal is that life cycle management information shall be readily available for every dataset managed by the institute. 
 
-### Data Management Plan
+#### Data Management Plan
 
 A Data Management Plan (DMP) is a document that describes textually how the data life cycle management will be carried out for datasets used and produced in specific projects. Generally, these are externally financed projects for which such documentation is required by funding agencies. However, larger internal projects covering many datasets may also find it beneficial to create a specific document of this type.
 
