@@ -1,5 +1,5 @@
 ## Dataset
-The dataset is the basic building block of the data management model; all the documentation and services described in this DMH are built on datasets. The dataset specification is the first step in structuring data for efficient management, and it is mandatory.
+Datasets form the building block of any data management model. Dataset specification is the first step in structuring data for efficient management.
 A dataset is a collection of data. Typically, a dataset represents a number of variables in time and space. Datasets may be categorised by: 
 
 - *Source*, such as observations (in situ, remotely sensed) and numerical model projections and analyses; 
