@@ -58,4 +58,4 @@ One of the main type of data is the point observation of species, delivered in t
 
 ### Time series
 
-Automated positioning of individuals by gps devices results in Spatial animal movement data. REgular sureying of the same variables in same locations results in time series of biodiversity data.
+Automated positioning of individuals by gps devices results in Spatial animal movement data. Regular surveying of the same variables in same locations results in time series of biodiversity data.
