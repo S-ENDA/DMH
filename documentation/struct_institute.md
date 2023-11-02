@@ -50,7 +50,7 @@ Sensors placed onboard ships, ferryboxes, are typical trajectories sampled by NI
 
 ### Current practice
 
-Data is stored in multiple formats and structures such as databases, tabular files, geospatial, gridded, images and other.
+Data is stored in multiple formats and structures such as databases, tabular files, geospatial, gridded, and images.
 
 ### Species observation
 
