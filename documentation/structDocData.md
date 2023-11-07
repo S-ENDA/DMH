@@ -1,6 +1,6 @@
 # Data Structure and Documentation
 
-Structuring and documenting dynamic geodata shared by multiple providers (S-ENDA partners) is essential to ensure that data is findable, understandable usable adn interoperable.
+Structuring and documenting dynamic geodata shared by multiple providers (S-ENDA partners) is essential to ensure that data is findable, understandable reusable and interoperable.
 
 Data need to be structured, encoded and delivered in agreed formats, documented with rich and standard metadata, and supported by standardized vocabularies.
 
