@@ -16,6 +16,7 @@
 - [Practical Guides](practicalGuides.md)
   - [Data Management Plan](practicalGuides_DMP.md)
   - [NetCDF](practicalGuides_NETCDF.md)
+  - [Download APi - Geonorge](practicalGuides_GN_API.md)
 - [Data Services](dataServices.md)
  - [User Portals](userPortals.md)
 
