@@ -11,7 +11,7 @@ Advanced users typically consume some type of data in order to process and inter
 
 Between the data providers and data consumers are the processes that manage and deliver the datasets (Figure 1). A number of human roles may be defined with responsibilities that, together, ensure that these processes are carried out in accordance with the data management requirements of the organisation. The definition and filling of these roles depend heavily on the particular organisation, and each organisation must devise its own best solution.
 
-![value_chain](https://github.com/S-ENDA/data-management-handbook/blob/master/source/images/value_chain.png)
+![value_chain](src/value_chain.png)
 
 *Figure 1. Value chain for data*
 
