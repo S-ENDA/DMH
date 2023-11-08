@@ -15,7 +15,7 @@ In order to best serve the data through web services, the following principles a
 - A dataset should be defined by the information content and not the production method;
 - A good dataset does not mix feature types, i.e., trajectories and gridded data should not be present in the same dataset.
 
-To follow FAIR principles, datasets should: 
+In order to support the FAIR principles, the following guidelines must apply to datasets:
 - Be assigned a globally unique and persistent identifier. 
 - Be described with rich metadata. 
 - Be registered or indexed in a searchable resource. 
