@@ -1,6 +1,6 @@
-## Dataset formats and specifications]
+## Data storage formats and metadata specifications in S-ENDA
 
-The tables below describe the datasets the partners in S-ENDA have agreed to deliver They include storage formats and metadata specifications, as well as architecture drawings with the agreed integration points needed to integrate with geonorge.no and/or the [Arctic Data Center](adc.met.no).
+The tables below describe the datasets the partners in S-ENDA have agreed to deliver. They include storage formats and metadata specifications with the agreed integration points needed to integrate with geonorge.no and/or the [Arctic Data Center](adc.met.no).
 
 **MET**
 
