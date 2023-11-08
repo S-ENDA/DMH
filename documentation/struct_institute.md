@@ -18,18 +18,18 @@ The WMO standard for observations is BUFR, which is also supported but is not se
 ### Current practice
 
 
-#### Gridded data
-
 #### Time series data
+Most data at NILU (in EBAS or overall?) are stored as time series data 
+NasaAmes1001 for submitting data. 
+NetCDF in a thredds catalogue. 
+
+S-ENDA: Datasett til Nordatanet (Spesielt CO2 på zeppelin)
 
 
-### Current practice in structuring and documenting data
+#### Gridded data
+S-ENDA: Deposisjonskart for nedfall av forurensning i Norge (ask Paul)
 
-|Supported file formats/structures |Datatype |Available metadata |Examples|
-|:----|:----|:----|:----|
-|EBAS NasaAmes | NasaAmes1001 / ASCII | [EBAS metadata elements](https://ebas-submit.nilu.no/templates/comments/ebas_metadata_elements) | |
-|NetCDF| | | |
-|Comments| | | |
+
 
 
 ## NIVA
