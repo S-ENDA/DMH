@@ -10,9 +10,10 @@ Data is processed and interpreted to generate knowledge (e.g., about the weather
 Advanced users typically consume some type of data in order to process and interpret it, and produce new knowledge, e.g., in the form of a new dataset or other information. The datasets can be organised in different levels, such as the [WMO WIGOS definition for levels of data](https://codes.wmo.int/wmdr/_SourceOfObservation). Less advanced users apply information based on data (e.g., an illustration) to make decisions (e.g., clothing adapted to the forecast weather).
 
 Between the data providers and data consumers are the processes that manage and deliver the datasets (Figure 1). A number of human roles may be defined with responsibilities that, together, ensure that these processes are carried out in accordance with the data management requirements of the organisation. The definition and filling of these roles depend heavily on the particular organisation, and each organisation must devise its own best solution.
-
+<p style="text-align: center;">
 ![value_chain](src/value_chain.png)
 
 *Figure 1. Value chain for data*
+</p>
 
-All the S-ENDA partners work to integrate the FAIR Guiding Principles for scientific data management into their routines, and in this chapter we outline some of the differences in the Institute-specific data management practices, and also list relevant personnel in the partners.
+All the S-ENDA partners work to integrate the FAIR Guiding Principles for scientific data management into their routines, and in this chapter we outline some of the differences in the institute specific data management practices, the S-ENDA architecture, datasets the S-ENDA partners have agreed to deliver and a list relevant personnel at each of the partners.
