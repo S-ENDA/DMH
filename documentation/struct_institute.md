@@ -16,19 +16,13 @@ The WMO standard for observations is BUFR, which is also supported but is not se
 
 ## NILU
 ### Current practice
-
+NILU handles several types of data, whereas one of the main ones is point in-situ measurements. More information and publicly available data can be found here: [Open data](https://www.nilu.com/open-data/). 
 
 #### Time series data
-Most data at NILU (in EBAS or overall?) are stored as time series data 
-NasaAmes1001 for submitting data. 
-NetCDF in a thredds catalogue. 
-
-S-ENDA: Datasett til Nordatanet (Spesielt CO2 på zeppelin)
-
+Typical EBAS time series of point in-situ measurements are submitted from many different data sources around the globe in the [EBAS Nasa Ames format](https://projects.nilu.no/ccc/tfmm/kjeller_2016/EBAS_Data_Format_2016-10.pdf). The EBAS database (EABS core consisting of software and relational database) is used to quality control and long term store the data. For data dissemination, harmonised secondary datasets in the NetCDF format are generated and served via a THREDDS Data Server (TDS) using THREDDS catalog protocol, ISO metadata and data access through OPeNDAP and http NetCDF download. Metadata for those data are harvested by Met.no for the NorDataNet project.
 
 #### Gridded data
-S-ENDA: Deposisjonskart for nedfall av forurensning i Norge (ask Paul)
-
+A set of gridded deposition data for Norway is generated, stored as NetCDF files and published on a THREDDS Data server in the S-ENDA project. The additional use of the WMS protocol for data access facilitates the visualisation of the 2D dataset.
 
 
 
@@ -52,10 +46,10 @@ Sensors placed onboard ships, ferryboxes, are typical trajectories sampled by NI
 
 Data is stored in multiple formats and structures such as databases, tabular files, geospatial, gridded, and images.
 
-### Species observation
+#### Species observation
 
 One of the main type of data is the point observation of species, delivered in the darwin core standard. Sampling of genetic material in nature converges into huge databases of biodiversity genetic data.
 
-### Time series
+#### Time series
 
 Automated positioning of individuals by gps devices results in Spatial animal movement data. Regular surveying of the same variables in same locations results in time series of biodiversity data.
