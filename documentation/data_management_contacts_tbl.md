@@ -4,7 +4,7 @@
 
 | Institute      | Responsible Personnel | Role                                                | Description                                                                                            | Contact                  |
 |:---------------|:--------------------|:----------------------------------------------------|:---------------------------------------------------------------------------------------------------------|:-------------------------|
-| NIVA           | Dag Hjerman         | Environmental Data Science Section Leader           | Projects, colaborations                                                                                  | dhj@niva.no              |
+| NIVA           | Dag Hjermann         | Environmental Data Science Section Leader           | Projects, colaborations                                                                                  | dhj@niva.no              |
 | NIVA           | Ivana Huskova       | Data Specialist                                     | Data management planning, Documentation and architecture, Data workflow improvements, vocabulary         | ivana.huskova@niva.no    |
 | NIVA           | Kim Leirvik         | Tech Lead                                   | Datasets, NIVAcloud, Data Management, NetCDF, Thredds server, systems architecture                       | kim.leirvik@niva.no      |
 | NIVA           | Viviane Girardin    | Systems engineer                                    | Data Management, S-ENDA's DMH                                                                            | viviane.girardin@niva.no |
