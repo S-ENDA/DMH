@@ -41,6 +41,10 @@ The Research Council (Norges forskningsråd - NFR) has introduced guidelines req
 
 <sup> *1 </sup>The institute has used or uses the service* 
 
+At MET Norway, [EasyDMP](https://www.sigma2.no/data-planning) is only used in research projects. For data produced by MET Norway’s internal production chains (operational model and observation systems), writing formal DMPs for the various datasets is not cost-effective. The institute's primary aim is thus to employ metadata to steer data handling processes (metadata-steered data management) and thereby automate as much of those processes as possible. The current specification of metadata at the institute do not include the parameters describing the life cycle of a dataset, but adding them to the specification is a straightforward task. The necessary first step is the definition of the parameters required and this is not
+yet in place.
+
+
 ### Example of a Data Management Plan Template
 
 EasyDMP, as an example, is a web tool designed to facilitate and standardize the creation of Data Management Plan (DMP) documents. It can be customized according to specific governance requirements by each institution. It provides a list of questions to be answered by the person responsible for providing the DMP.
