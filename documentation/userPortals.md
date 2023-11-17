@@ -11,7 +11,7 @@ On the table below you will find a list of relevant portals where data from S-EN
 |:----|:----|:----|:----|
 |[Geonorge](https://www.geonorge.no/)| Public map catalogue| Access | Geonorge
 |[Arctic Data Center](https://adc.met.no/)|The Arctic Data Centre (ADC) is a service provided by the Norwegian Meteorological Institute (MET) and is a legacy of the International Polar Year (IPY) when MET coordinated operational data streams internationally and research data nationally.|Search, Visualization|MET, NILU, NIVA, NINA, Others|
-|[The MET Portal ](https://www.met.no/frie-meteorologiske-data)|Static signpost that contains guidance and textual documentation of the data and services.|Search, Access, Visualization|MET|
+|[data.met.no](https://data.met.no/)|Main access point to free and open data from MET Norway|Search, Access, Visualization|MET|
 |[NIVA's THREDDS Data Server](https://thredds.t.niva.no/thredds/info/serverInfo.html)|Timeseries data. Still under development (test server)|Access|NIVA|
 |[Aquamonitor](https://aquamonitor.niva.no/portal/)| Water monitoring system| Access, Visualization| NIVA|
 |[Vannmiljø](https://vannmiljo.miljodirektoratet.no/)|Vannmiljø is the environmental authorities' specialist system for recording and analyzing the state of water, and plays a central role in the planning and implementation of all monitoring activities that follow from the water regulations. Data will, however, be available for all cases where information on the state and development of the water environment quality is requested.|Search, Access| Miljødirektoratet, NIVA, others|
