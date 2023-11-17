@@ -18,7 +18,7 @@
   - [NetCDF](practicalGuides_NETCDF.md)
   - [Download API - Geonorge](practicalGuides_GN_API.md)
 - [Data Services](dataServices.md)
- - [User Portals](userPortals.md)
+  - [User Portals](userPortals.md)
 
 ---
 
