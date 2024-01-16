@@ -4,7 +4,7 @@
 
 ### Accessing data
 
-Data available through OPeNDAP can be accessed for example using [xarray](). 
+Data available through OPeNDAP can be accessed for example using [xarray](https://docs.xarray.dev/en/stable). 
 
 ```python
 import xarray as xr
