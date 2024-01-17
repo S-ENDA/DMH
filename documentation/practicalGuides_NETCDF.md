@@ -21,6 +21,7 @@ conda install -c conda-forge xarray dask netCDF4 bottleneck
 ```
 
 **Reproducible example:**
+
 ```python
 import xarray as xr
 
@@ -33,7 +34,6 @@ ds.to_dataframe()
 ds.temperature.plot()
 ds.head()
 ```
-
 
 ### With R
 
@@ -48,6 +48,7 @@ url=paste0('https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-outle
           
 # Read the netcdf file from the url
 dataNiva = tidync(url) 
+
 ```
 
 ### Submitting data as NetCDF-CF
