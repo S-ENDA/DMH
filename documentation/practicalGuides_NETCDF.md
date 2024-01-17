@@ -12,22 +12,28 @@ Xarray installation is required. For more information visit xarray's [documentat
 
 If you don't have xarray installed. Do so with
 
-        python -m pip install "xarray[complete]"
+```python
+python -m pip install "xarray[complete]"
         
-        # If you use conda: 
+# If you use conda: 
 
-        conda install -c conda-forge xarray dask netCDF4 bottleneck
-
+conda install -c conda-forge xarray dask netCDF4 bottleneck
+```
 
 **Reproducible example:**
+```python
+import xarray as xr
 
-        #python -m pip install xarray
-        #requires 'netcdf4', 'pydap'
+ds = xr.open_dataset("https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-inlet.nc")
+ds # this displays basic info on the dataset
+# If you don't need the full dataset subset!
+# That way you don't need to download all the years
+ds = ds.sel(time="2024")
+ds.to_dataframe()
+ds.temperature.plot()
+ds.head()
+```
 
-        import xarray as xr
-
-        ds = xr.open_dataset("https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-inlet.nc")
-        ds.head()
 
 ### With R
 
@@ -35,13 +41,14 @@ There are several packages for NetCDF in R (RNetCDF, ncdf4, raster, stars). The 
 
 **Reproducible example:**
 
-        library(tidync)
+```R
+library(tidync)
 
-          url=paste0('https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-outlet.nc')
+url=paste0('https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-outlet.nc')
           
-          # Read the netcdf file from the url
-          dataNiva = tidync(url) 
-
+# Read the netcdf file from the url
+dataNiva = tidync(url) 
+```
 
 ### Submitting data as NetCDF-CF
 
