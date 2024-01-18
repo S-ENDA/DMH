@@ -57,7 +57,7 @@ dataNiva = tidync(url)
 
 - Define your dataset, some help can be found at [CF conventions](https://cfconventions.org/)
 
-- Create a CF-NetCDF file with neccary attributes
+- Create a CF-NetCDF file with the required attributes
 
   * Add units, long_name and standard_name(if possible) to data variables
   * Add discovery metadata as global attributes to the dataset, also see [adc.met.no](https://adc.met.no/node/4) and/or the [met handbook](https://metno.github.io/data-management-handbook/#_climate_and_forecast_conventions_cf)
