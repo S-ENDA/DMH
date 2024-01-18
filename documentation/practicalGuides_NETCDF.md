@@ -62,6 +62,6 @@ dataNiva = tidync(url)
   * Add units, long_name and standard_name(if possible) to data variables
   * Add discovery metadata as global attributes to the dataset, also see [adc.met.no](https://adc.met.no/node/4) and/or the [met handbook](https://metno.github.io/data-management-handbook/#_climate_and_forecast_conventions_cf)
 
-For a full examples see:
+For full examples see:
   - [creating timeseries](./src/notebooks/create-timeseries.html)
   - [creating trajectories](./src/notebooks/create-trajectory.html)
