@@ -1,4 +1,4 @@
-## Data Management Plan (DMP)
+## Create a Data Management Plan (DMP)
 
 A Data Management Plan (DMP) is a document that describes textually how the data life cycle management will be carried out for datasets used and produced in specific projects. Generally, these are externally financed projects for which such documentation is required by funding agencies. However, larger internal projects covering many datasets may also find it beneficial to create a specific document of this type.
 
