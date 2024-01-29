@@ -28,14 +28,16 @@ The goal is that life cycle management information shall be readily available fo
 
 #### Data Management Plan
 
-A Data Management Plan (DMP) is a document that describes textually how the data life cycle management will be carried out for datasets used and produced in specific projects. Generally, these are externally financed projects for which such documentation is required by funding agencies. However, larger internal projects covering many datasets may also find it beneficial to create a specific document of this type.
+A Data Management Plan (DMP) is a document that outlines how the data life cycle management will be conducted for datasets utilized and generated in specific projects. Typically, these are externally financed projects for which such documentation is required by funding agencies. 
 
-The Research Council (Norges forskningsråd - NFR) has introduced guidelines requiring publicly accesible DMPs from its funded projects. Click [here](https://www.forskningsradet.no/en/research-policy-strategy/open-science/research-data/) for more information regarding NFR's guidelines for the contents of a DMP. We recommend these guidelines for any data management project. 
+The Research Council (Norges forskningsråd - NFR) has implemented guidelines mandating publicly accesible DMPs from its funded projects. For more details on NFR's guidelines regarding the contents of a DMP, click [here](https://www.forskningsradet.no/en/research-policy-strategy/open-science/research-data/) for more information regarding NFR's guidelines for the contents of a DMP. We recommend adhering to these guidelines for any data management project.  
+
+While larger internal projects covering many datasets might benefit from a dedicated document of this nature, generally writing formal DMPs for the various datasets is not cost-effective. In such cases it is more appropriate to employ metadata to steer data handling processes (metadata-steered data management) and thereby automate as much of those processes as possible.
 
 **Examples of DMP services:**
 
-|Service|Used by<sup>1</sup>|Examples|
-|:----|:----|:----|
+|Service|Used by<sup>1</sup>|
+|:----|:----|
 |[EasyDMP](https://www.sigma2.no/data-planning)|NIVA, NINA|
 [Argos](https://argos.openaire.eu/home)|NIVA|
 
