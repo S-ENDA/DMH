@@ -16,6 +16,7 @@
 - [Practical Guides](practicalGuides.md)
   - [Data Management Plan](practicalGuides_DMP.md)
   - [NetCDF](practicalGuides_NETCDF.md)
+  - [Search data in CSW](practicalGuides_CSW.md)
 - [Data Services](dataServices.md)
   - [User Portals](userPortals.md)
 
