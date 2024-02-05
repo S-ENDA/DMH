@@ -1,6 +1,6 @@
 # Data Services
 
-The purpose of this chapter is to describe services that benefit from the standardisation performed in the previous step. The information structures described in the previous chapter pave the way for efficient data discovery and use through tools and automated services. Implementation of the services must be in line with the institute’s delivery architecture.
+This chapter presents an overview over the free services and provided by S-ENDA's partners. Implementation of the services must be in line with the institute’s delivery architecture.
 
 Data services include:
 
