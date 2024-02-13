@@ -180,22 +180,178 @@ $ less meps_reduced.xml  # to see the MMD xml file
 ```
 
 ### How to add NetCDF-CF data to thredds
-This section should contain institution specific information about how to add netcdf-cf files to thredds.
+This section contains institution specific information about how to add netcdf-cf files to thredds.
 
 #### MET Norway
 To add your NetCDF-CF data to [thredds.met.no](https://thredds.met.no/thredds/catalog.html])? Follow these steps and your data will be discoverable by MET Norway’s thredds server
 (discovery metadata files can then be created with the nc2mmd tool in [py-mmd-tools](https://github.com/metno/py-mmd-tools]). 
 1. Store the NetCDF-CF file(s) on the lustre filesystem.
-  - if you need help to transfer data, please file a ticket at [hjelp.met.no](https://hjelp.met.no)
-  - Please also make sure that you have sufficient quota on lustre for your data or apply for a quota on [hjelp.met.no](https://hjelp.met.no)
+  - If you need help to transfer data, file a ticket at [hjelp.met.no](https://hjelp.met.no)
+  - Make sure that you have sufficient quota on lustre for your data or apply for a quota on [hjelp.met.no](https://hjelp.met.no)
   - You can either use your own user space or a group area that you have access to within a project
   - Make sure you add the same data to both the A and B storage rooms if you need redundancy (this requires some extra steps)
 2. Then, thredds needs to be able to discover your data:
- - Use hjelp.met.no [https://hjelp.met.no] to file a ticket for adding data to thredds. The full path to your data or to the base directory of your data structure is needed. All data files ending with .nc ( or.ncml ) below this base directory will be visible on thredds.
+ - Use [hjelp.met.no](https://hjelp.met.no) to file a ticket for adding data to thredds. The full path to your data or to the base directory of your data structure is needed. All data files ending with .nc ( or.ncml ) below this base directory will be visible on thredds.
  - When thredds configuration updates have been deployed by the thredds administrator, your NetCDF-CF data will become visible on the server.
    
-The base directory of all data available on thredds is https://thredds.met.no/thredds/catalog.html. Here you will find your data in the folder agreed with the thredds administrator. If your files are correctlyformatted and follow the CF [https://cfconventions.org/] and ACDD [https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3] conventions, it is also possible to register the datasets in the discovery metadata catalog. See details in [Creating NetCDF-CF files].
+The base directory of all data available on thredds is https://thredds.met.no/thredds/catalog.html. Here you will find your data in the folder agreed with the thredds administrator. If your files are correctlyformatted and follow the [CF](https://cfconventions.org/) and [ACDD](https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3) conventions, it is also possible to register the datasets in the discovery metadata catalog. See details in [Creating NetCDF-CF files].
 
+## Register and make data available
+In order to make a dataset findable, a dataset must be registered in a searchable catalog with appropriate metadata. Metadata Controlled Production is the process of using metadata and notification services to control downstream production. The (meta)data catalog is indexed and exposed through [CSW](https://www.geonorge.no/en/for-developers/apis/csw/).
+
+At MET Norway for example,the MET Messaging System (MMS) a message broker, notifies users about the availability of new data. MMS uses [CloudEvents](https://cloudevents.io/) to describe [Product Events](https://github.com/metno/MMS/blob/main/messages.md), which are notification messages about new datasets (or products). MMS can be used both to notifying downstream production systems, and to make datasets findable, accessible and reusable for the general public. The former can be achieved by supplying the minimum required metadata in a Product Event, whereas the latter requires provisioning of an MMD metadata string to the Product Event. 
+
+In order to make a dataset available to the public, a dataset must be registered in a searchable catalog with appropriate metadata.The following needs to be done:
+1. Generate an MMD xml file from your NetCDF-CF file 
+2. Test your mmd xml metadata file 
+3. Push the MMD xml file to MMS or to the discovery metadata catalog service
+
+### Generation of MMD xml file from NetCDF-CF
+
+Clone the [py-mmd-tools](https://github.com/metno/py-mmd-tools.git) repo and make a local installation with e.g., *pip install .*. This should bring in all needed dependencies (we recommend to use a virtual environment).
+Then, generate your mmd xml file as follows:
+
+```
+cd script
+./nc2mmd.py -i <your netcdf file> -o <your xml output directory>
+```
+See *./nc2mmd.py --help* for documentation and extra options.
+
+You will find Extensible Stylesheet Language Transformations (XSLT) documents in the [MMD](https://github.com/metno/mmd.git) repository. These can be used to translate the metadata documents from MMD to other vocabularies, such as ISO 19115:
+```
+./bin/convert_from_mmd -i <your mmd xml file> -f iso -o <your iso output file name>
+```
+*Note that the discovery metadata catalog ingestion tool will take care of translations from MMD, so you don’t need to worry about that unless you have special interest in it.*
+
+### Test the MMD xml file
+Install the [dmci app](https://github.com/metno/discovery-metadata-catalog-ingestor), and run the usage example locally. This will return an error message if anything is wrong with your MMD file.
+You can also test your MMD file via the DMCI API:
+```
+curl --data-binary "@<PATH_TO_MMD_FILE>" https://dmci.s-enda-*.k8s.met.no/v1/validate
+```
+### Push the MMD xml file to the discovery metadata catalog
+For development and verification purposes:a producer of data that does not need to go through the event queue should do the following:
+1. Push to the staging environment for tesing and verification: ```curl --data-binary "@<PATH_TO_MMD_FILE>" https://dmci.s-enda-*.k8s.met.no/v1/insert```
+   where * should be either dev or staging.
+2. Check that the MMD file has been added to the catalog services in staging
+3. Push for production (the official catalog): ``` curl --data-binary "@<PATH_TO_MMD_FILE>" https://dmci.s-enda.k8s.met.no/v1/insert```
+4. Check that the MMD file has been added to the catalog services in production
+
+## How to find data
+### Using OpenSearch
+#### Local test machines
+The [vagrant-s-enda](https://github.com/metno/vagrant-s-enda) environment provides OpenSearch support through [PyCSW](https://github.com/geopython/pycsw). To test [OpenSearch](https://en.wikipedia.org/wiki/OpenSearch) via the browser, start the vagrant-s-enda vm (vagrant up) and go to: ```http://10.10.10.10/pycsw/csw.py?mode=opensearch&service=CSW&version=2.0.2&request=GetCapabilities```
+
+This will return a description document of the catalog service. The URL field in the description document is a template format that can be used to represent a parameterized form of the search. The search client will process the URL template and attempt to replace each instance of a template parameter, generally represented in the form {name}, with a value determined at query time [OpenSearch URL template syntax](https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-url-template-syntax). The question mark following any search parameter means that the parameter is optional.
+
+#### Online catalog
+For searching the online metadata catalog, the base url ```(http://10.10.10.10/)``` must be replaced by ```https://csw.s-enda.k8s.met.no/```:
+
+``` http://csw.s-enda.k8s.met.no/?mode=opensearch&service=CSW&version=2.0.2&request=GetRecords&elementsetname=full&typenames=csw:Record&resulttype=results ```
+
+#### OpenSearch examples
+To find all datasets in the catalog:
+
+- ```https://csw.s-enda.k8s.met.no/?mode=opensearch&service=CSW&version=2.0.2&request=GetRecords&elementsetname=full&typenames=csw:Record&resulttype=results```
+
+Or datasets within a given time span:
+
+- ```http://csw.s-enda.k8s.met.no/?mode=opensearch&service=CSW&version=2.0.2&request=GetRecords&elementsetname=full&typenames=csw:Record&resulttype=results&time=2000-01-01/2020-09-01```
+
+Or datasets within a geographical domain (defined as a box with parameters min_longitude, min_latitude, max_longitude, max_latitude):
+
+- ```https://csw.s-enda.k8s.met.no/?mode=opensearch&service=CSW&version=2.0.2&request=GetRecords&elementsetname=full&typenames=csw:Record&resulttype=results&bbox=0,40,10,60```
+
+Or, datasets from any of the Sentinel satellites:
+
+- ```https://csw.s-enda.k8s.met.no/?mode=opensearch&service=CSW&version=2.0.2&request=GetRecords&elementsetname=full&typenames=csw:Record&resulttype=results&q=sentinel```
+
+### Advanced geographical search OGC CSW
+PyCSW opensearch only supports geographical searches querying for a box. For more advanced geographical searches, one must write specific XML files. For example:
+
+To find all datasets containing a point:
+```
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<csw:GetRecords
+    xmlns:csw="http://www.opengis.net/cat/csw/2.0.2"
+    xmlns:ogc="http://www.opengis.net/ogc"
+    xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    service="CSW"
+    version="2.0.2"
+    resultType="results"
+    maxRecords="10"
+    outputFormat="application/xml"
+    outputSchema="http://www.opengis.net/cat/csw/2.0.2"
+    xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd" >
+  <csw:Query typeNames="csw:Record">
+    <csw:ElementSetName>full</csw:ElementSetName>
+    <csw:Constraint version="1.1.0">
+      <ogc:Filter>
+        <ogc:Contains>
+          <ogc:PropertyName>ows:BoundingBox</ogc:PropertyName>
+          <gml:Point>
+            <gml:pos srsDimension="2">59.0 4.0</gml:pos>
+          </gml:Point>
+        </ogc:Contains>
+      </ogc:Filter>
+    </csw:Constraint>
+  </csw:Query>
+</csw:GetRecords>
+```
+- To find all datasets intersecting a polygon:
+ ```
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<csw:GetRecords
+    xmlns:csw="http://www.opengis.net/cat/csw/2.0.2"
+    xmlns:gml="http://www.opengis.net/gml"
+    xmlns:ogc="http://www.opengis.net/ogc"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    service="CSW"
+    version="2.0.2"
+    resultType="results"
+    maxRecords="10"
+    outputFormat="application/xml"
+    outputSchema="http://www.opengis.net/cat/csw/2.0.2"
+    xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd" >
+  <csw:Query typeNames="csw:Record">
+    <csw:ElementSetName>full</csw:ElementSetName>
+    <csw:Constraint version="1.1.0">
+      <ogc:Filter>
+        <ogc:Intersects>
+          <ogc:PropertyName>ows:BoundingBox</ogc:PropertyName>
+          <gml:Polygon>
+            <gml:exterior>
+              <gml:LinearRing>
+                <gml:posList>
+                  47.00 -5.00 55.00 -5.00 55.00 20.00 47.00 20.00 47.00 -5.00
+                </gml:posList>
+              </gml:LinearRing>
+            </gml:exterior>
+          </gml:Polygon>
+        </ogc:Intersects>
+      </ogc:Filter>
+    </csw:Constraint>
+  </csw:Query>
+</csw:GetRecords>
+```
+- Then, you can query the CSW endpoint with, e.g., python:
+```
+import requests
+requests.post('https://csw.s-enda.k8s.met.no', data=open(my_xml_request).read()).text
+```
+### Human Search Interface
+
+Access the human search interface through the provided user portals for S-ENDA partners at [https://s-enda.github.io/DMH/userPortals.html] to
+find you data via the web browser. For more information about how to use the service [responsible personnel](partners https://s-enda.github.io/DMH/data_management_contacts_tbl.html) for each S-ENDA is provided.
+#### QGIS
+MET Norway’s S-ENDA CSW catalog service is available at https://data.csw.met.no. This can be used from QGIS as follows:
+1. Select ```Web > MetaSearch > MetaSearch``` menu item
+2. Select ```Services > New```
+3. Type, e.g., ```data.csw.met.no``` for the name
+4. Type ```https://data.csw.met.no``` for the URL
+   
+Under the ```Search``` tab, you can then add search parameters, click ```Search```, and get a list of available datasets.
 ## Access to data without downloading
 
 It is possible to get access to NetCDF data via URL. Here we provide ways to do so using Python and R.
@@ -213,7 +369,6 @@ python -m pip install "xarray[complete]"
 
 conda install -c conda-forge xarray dask netCDF4 bottleneck
 ```
-
 **Reproducible example:**
 
 ```python
@@ -232,7 +387,6 @@ ds.head()
 ### With R
 
 There are several packages for NetCDF in R (RNetCDF, ncdf4, raster, stars). The example below uses [tidync](https://docs.ropensci.org/tidync/). 
-
 **Reproducible example:**
 
 ```R
@@ -242,20 +396,49 @@ url=paste0('https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-outle
           
 # Read the netcdf file from the url
 dataNiva = tidync(url) 
-
 ```
-
-### Submitting data as NetCDF-CF
-
-**Workflow**
-
-- Define your dataset, some help can be found at [CF conventions](https://cfconventions.org/)
-
-- Create a CF-NetCDF file with the required attributes
-
-  * Add units, long_name and standard_name(if possible) to data variables
-  * Add discovery metadata as global attributes to the dataset, also see [adc.met.no](https://adc.met.no/node/4) and/or the [met handbook](https://metno.github.io/data-management-handbook/#_climate_and_forecast_conventions_cf)
-
 For full examples see:
   - [creating timeseries](./src/notebooks/create-timeseries.html)
   - [creating trajectories](./src/notebooks/create-trajectory.html)
+
+    
+## Assignment of Digital Object Identifiers (DOIs)
+A DOI is a unique, persistent and web resolvable identifier (PID), that uniquely and persistently resolves to a digital resource. The DOI is a key element to make digital resources findable on the web, thus allowing for their easy discovery. Additionally, they can be used when citing a specific resource on the web.
+
+DOIs consist of an alphanumeric string made up by a prefix and a suffix. The prefix is assigned to a particular DOI registrant, e.g., MET Norway, whereas the suffix is provided by the registrant for a specific object. The combination of a prefix and a suffix is unique, and the suffix and the prefix are separated by a forward slash (e.g. 10.21343/z9n1-qw63).
+
+### DOIs in a FAIR perspective
+The use of DOIs for datasets specifically relates with the Findability and Reusability principles:
+- Findability: Making a resource findable is the first step to allow for sharing of data, and for this reason this is a key point for achieving FAIRness of data.
+The first FAIR guideline principle states the following:
+-  F1. (meta)data are assigned a globally unique and persistent identifier. Thus, assigning a DOI to a
+digital resource adheres with the first principle of FAIRness, as the identifier will be globally unique
+as well as persistent.
+   Additionally, the third principle for findability:
+-  F3: Metadata clearly and explicitly include the identifier of the data they describe.
+This means that the metadata and the data should be connected explicitly by mentioning a dataset’s globally unique and persistent identifier in the metadata of that specific dataset. This applies more particularly for data formats that do not include metadata in their headers, usually resulting in separate files for data and metadata.
+- Reusability of data is strictly related with the possibility of citing data. When the DOI is incorporated into a citation it becomes a guaranteed location for the resource cited, because the DOI will always resolve to the right web address (URL). Using a DOI then allows for proper citation of data when it is reused, giving the right credits and visibility to scientists.
+
+```
+Further reading and resources:
+1. DOI FAQ [https://www.doi.org/faq.html]
+2. FAIR principle paper [https://doi.org/10.1038/sdata.2016.18]
+3. GO-FAIR [https://www.go-fair.org/fair-principles]
+4. OPENAIR [https://www.openaire.eu/how-to-make-your-data-fair]
+```
+### How-to assign DOIs to your datasets
+It is most practical to assign DOIs to parent datasets. However, any dataset can be assigned a DOI,irrespective of the DOI status of its related datasets. For example, a child dataset may receive its own DOI even if its parent also has a DOI. This may be practical if the dataset is, e.g., used in a scientific publication.
+
+In order for the DOI registration agency (DataCite) to assign a DOI, the followinf have to be provided:
+1. A metadata file containing at least the DataCite mandatory elements
+2. A URL to the dataset landing page, which will be the persistent URL to which the DOI resolves
+   
+For MET Norway, the information required for the DataCite metadata file is available in [MMD]([https://htmlpreview.github.io/?https://github.com/metno/mmd/blob/master/doc/mmd-specification.html) whereas the DOI landing page is automatically created on the https://adc.met.no/ data portal, upon request from the data producer. Only administrators of the data portal have access to this service and are thus the only ones who can finalize the process of assigning a DOI.
+Examples of landing pages created using this approach are available at:
+- https://adc.met.no/landing-page-collector
+```
+Further reading and resources:
+1. DOI at MET [https://adc.met.no/sites/adc.met.no/files/articles/DOIs-at-METNO.pdf]
+```
+
+
