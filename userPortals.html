@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>User Portals - Data Manangement Handbook for S-ENDA partners</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item "><a href="fair.html"><strong aria-hidden="true">2.</strong> FAIR</a></li><li class="chapter-item "><a href="dataGovernance.html"><strong aria-hidden="true">3.</strong> Data Governance</a></li><li class="chapter-item "><a href="structDocData.html"><strong aria-hidden="true">4.</strong> Structuring and Documenting Data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="struct_dataset.html"><strong aria-hidden="true">4.1.</strong> Datasets</a></li><li class="chapter-item "><a href="struct_metadata.html"><strong aria-hidden="true">4.2.</strong> Metadata</a></li><li class="chapter-item "><a href="struct_vocabulary.html"><strong aria-hidden="true">4.3.</strong> Vocabulary</a></li><li class="chapter-item "><a href="struct_institute.html"><strong aria-hidden="true">4.4.</strong> Institute-specific data structure</a></li></ol></li><li class="chapter-item "><a href="data_management.html"><strong aria-hidden="true">5.</strong> Data management</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="data_management_institute.html"><strong aria-hidden="true">5.1.</strong> Institute-specific data management</a></li><li class="chapter-item "><a href="data_management_architecture.html"><strong aria-hidden="true">5.2.</strong> S-ENDA architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="data_management_datasets.html"><strong aria-hidden="true">5.2.1.</strong> Dataset formats and specifications</a></li></ol></li><li class="chapter-item "><a href="data_management_contacts_tbl.html"><strong aria-hidden="true">5.3.</strong> Contacts and roles</a></li></ol></li><li class="chapter-item "><a href="practicalGuides.html"><strong aria-hidden="true">6.</strong> Practical Guides</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="practicalGuides_DMP.html"><strong aria-hidden="true">6.1.</strong> Data Management Plan</a></li><li class="chapter-item "><a href="practicalGuides_NETCDF.html"><strong aria-hidden="true">6.2.</strong> NetCDF</a></li><li class="chapter-item "><a href="practicalGuides_CSW.html"><strong aria-hidden="true">6.3.</strong> Search data in CSW</a></li></ol></li><li class="chapter-item expanded "><a href="dataServices.html"><strong aria-hidden="true">7.</strong> Data Services</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="userPortals.html" class="active"><strong aria-hidden="true">7.1.</strong> User Portals</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><a href="acronym.html">Acronyms</a></li><li class="chapter-item affix "><a href="glossary.html">Glossary</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Data Manangement Handbook for S-ENDA partners</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/s-ENDA/dmh" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/S-ENDA/DMH/issues/new" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="user-portals-and-documentation"><a class="header" href="#user-portals-and-documentation">User Portals and Documentation</a></h1>
+<p>A portal is an entry point for data consumers, enabling them to discover and search for datasets and services independently.</p>
+<p>On the table below you will find a list of relevant portals where data from S-ENDA partners are available</p>
+<h2 id="user-portals-relevant-to-s-enda-partners"><a class="header" href="#user-portals-relevant-to-s-enda-partners">User portals relevant to S-ENDA partners</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">User portal</th><th style="text-align: left">Description</th><th style="text-align: left">Service type</th><th style="text-align: left">Data Producer</th></tr></thead><tbody>
+<tr><td style="text-align: left"><a href="https://www.geonorge.no/">Geonorge</a></td><td style="text-align: left">Public map catalogue</td><td style="text-align: left">Access</td><td style="text-align: left">Geonorge</td></tr>
+<tr><td style="text-align: left"><a href="https://adc.met.no/">Arctic Data Center</a></td><td style="text-align: left">The Arctic Data Centre (ADC) is a service provided by the Norwegian Meteorological Institute (MET) and is a legacy of the International Polar Year (IPY) when MET coordinated operational data streams internationally and research data nationally.</td><td style="text-align: left">Search, Visualization</td><td style="text-align: left">MET, NILU, NIVA, NINA, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://data.met.no/">data.met.no</a></td><td style="text-align: left">Main access point to free and open data from MET Norway</td><td style="text-align: left">Search, Access, Visualization</td><td style="text-align: left">MET</td></tr>
+<tr><td style="text-align: left"><a href="https://thredds.t.niva.no/thredds/info/serverInfo.html">NIVA's THREDDS Data Server</a></td><td style="text-align: left">Timeseries data. Still under development (test server)</td><td style="text-align: left">Access</td><td style="text-align: left">NIVA</td></tr>
+<tr><td style="text-align: left"><a href="https://aquamonitor.niva.no/portal/">Aquamonitor</a></td><td style="text-align: left">Water monitoring system</td><td style="text-align: left">Access, Visualization</td><td style="text-align: left">NIVA</td></tr>
+<tr><td style="text-align: left"><a href="https://vannmiljo.miljodirektoratet.no/">Vannmiljø</a></td><td style="text-align: left">Vannmiljø is the environmental authorities' specialist system for recording and analyzing the state of water, and plays a central role in the planning and implementation of all monitoring activities that follow from the water regulations. Data will, however, be available for all cases where information on the state and development of the water environment quality is requested.</td><td style="text-align: left">Search, Access</td><td style="text-align: left">Miljødirektoratet, NIVA, others</td></tr>
+<tr><td style="text-align: left"><a href="https://dome.ices.dk/ohat/">ICES DOME</a></td><td style="text-align: left">Data portal used by <a href="https://www.ospar.org/">OSPAR</a>, <a href="https://helcom.fi/">HELCOM</a>, <a href="https://www.amap.no/">AMAP</a>, and Expert Groups in the management of chemical and biological data for regional marine assessments.</td><td style="text-align: left">Search</td><td style="text-align: left">NIVA, others</td></tr>
+<tr><td style="text-align: left"><a href="https://https://geodata.nina.no/">NINA Geodata Portal</a></td><td style="text-align: left">Geodata Portal</td><td style="text-align: left">Access, Visualization</td><td style="text-align: left">NINA</td></tr>
+<tr><td style="text-align: left"><a href="https://ebas-data.nilu.no/">EBAS Data Portal</a></td><td style="text-align: left"><a href="https://ebas.nilu.no/">EBAS</a> is a database infrastructure operated by NILU. It's main objective is to handle, store and disseminate atmospheric composition data generated by international and national frameworks such as <a href="https://www.emep.int/">EMEP</a>, <a href="https://public.wmo.int/en/programmes/global-atmosphere-watch-programme">GAW</a>, <a href="https://www.actris.eu/">ACTRIS</a></td><td style="text-align: left">Search, Access, Visualization</td><td style="text-align: left">NILU, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://ebas-nrt.nilu.no/">EBAS Near-Real-Time Data</a></td><td style="text-align: left">Visualization of NRT data in EBAS</td><td style="text-align: left">Visualization</td><td style="text-align: left">NILU, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://actris.nilu.no/">ACTRIS Data Portal</a></td><td style="text-align: left">Data Portal for all data from the Aerosol, Clouds and Trace Gases Research Infrastructure (<a href="https://www.amap.no/">ACTRIS</a>), where NILU is leading the DVAS and In-Situ Data Centre units</td><td style="text-align: left">Search, Access, Visualization</td><td style="text-align: left">NILU, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://thredds.nilu.no/thredds/catalog.html">NILU's THREDDS Server</a></td><td style="text-align: left">THREDDS Server to access EBAS data and NRT products from EBAS and <a href="https://www.actris.eu/">ACTRIS</a></td><td style="text-align: left">M2M Access</td><td style="text-align: left">NILU, Others</td></tr>
+<tr><td style="text-align: left"><a href="https://luftkvalitet.nilu.no/">Luftkvalitetsdatabasen</a></td><td style="text-align: left">Data portal with air quality measurements from norwegian measurement stations</td><td style="text-align: left">Search, Access, Visualization, Maps</td><td style="text-align: left">NILU, Miljødirektoratet, Norwegian municipalies</td></tr>
+<tr><td style="text-align: left"><a href="https://evdc.esa.int/">EVDC Data Portal</a></td><td style="text-align: left">Data Portal for ESA Validation Data Center</td><td style="text-align: left">Long-term repository in Europe for archiving and exchange of correlative data for validation of atmospheric composition products from satellite platforms.</td><td style="text-align: left">Search, Access</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="dataServices.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="acronym.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="dataServices.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="acronym.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

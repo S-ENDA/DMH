@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Acronyms - Data Manangement Handbook for S-ENDA partners</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item "><a href="fair.html"><strong aria-hidden="true">2.</strong> FAIR</a></li><li class="chapter-item "><a href="dataGovernance.html"><strong aria-hidden="true">3.</strong> Data Governance</a></li><li class="chapter-item "><a href="structDocData.html"><strong aria-hidden="true">4.</strong> Structuring and Documenting Data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="struct_dataset.html"><strong aria-hidden="true">4.1.</strong> Datasets</a></li><li class="chapter-item "><a href="struct_metadata.html"><strong aria-hidden="true">4.2.</strong> Metadata</a></li><li class="chapter-item "><a href="struct_vocabulary.html"><strong aria-hidden="true">4.3.</strong> Vocabulary</a></li><li class="chapter-item "><a href="struct_institute.html"><strong aria-hidden="true">4.4.</strong> Institute-specific data structure</a></li></ol></li><li class="chapter-item "><a href="data_management.html"><strong aria-hidden="true">5.</strong> Data management</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="data_management_institute.html"><strong aria-hidden="true">5.1.</strong> Institute-specific data management</a></li><li class="chapter-item "><a href="data_management_architecture.html"><strong aria-hidden="true">5.2.</strong> S-ENDA architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="data_management_datasets.html"><strong aria-hidden="true">5.2.1.</strong> Dataset formats and specifications</a></li></ol></li><li class="chapter-item "><a href="data_management_contacts_tbl.html"><strong aria-hidden="true">5.3.</strong> Contacts and roles</a></li></ol></li><li class="chapter-item "><a href="practicalGuides.html"><strong aria-hidden="true">6.</strong> Practical Guides</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="practicalGuides_DMP.html"><strong aria-hidden="true">6.1.</strong> Data Management Plan</a></li><li class="chapter-item "><a href="practicalGuides_NETCDF.html"><strong aria-hidden="true">6.2.</strong> NetCDF</a></li><li class="chapter-item "><a href="practicalGuides_CSW.html"><strong aria-hidden="true">6.3.</strong> Search data in CSW</a></li></ol></li><li class="chapter-item "><a href="dataServices.html"><strong aria-hidden="true">7.</strong> Data Services</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="userPortals.html"><strong aria-hidden="true">7.1.</strong> User Portals</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><a href="acronym.html" class="active">Acronyms</a></li><li class="chapter-item affix "><a href="glossary.html">Glossary</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Data Manangement Handbook for S-ENDA partners</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/s-ENDA/dmh" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/S-ENDA/DMH/issues/new" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <div class="table-wrapper"><table><thead><tr><th style="text-align: left">Acronym</th><th style="text-align: left">Meaning</th></tr></thead><tbody>
+<tr><td style="text-align: left">ACDD</td><td style="text-align: left">Attribute Convention for Dataset Discovery RD5</td></tr>
+<tr><td style="text-align: left">ADC</td><td style="text-align: left">Arctic Data Centre (ADC)</td></tr>
+<tr><td style="text-align: left">AeN</td><td style="text-align: left">Arven etter Nansen (English: Nansen Legacy)</td></tr>
+<tr><td style="text-align: left">BUFR</td><td style="text-align: left">Binary Universal Form for the Representation of meteorological data. WMO standard format for binary data, particularly for non-gridded data (BUFR)</td></tr>
+<tr><td style="text-align: left">CDM</td><td style="text-align: left">Unidata Common Data Model (CDM)</td></tr>
+<tr><td style="text-align: left">CF</td><td style="text-align: left">Climate and Forecast Metadata Conventions (CF)</td></tr>
+<tr><td style="text-align: left">CMS</td><td style="text-align: left">Content Management System</td></tr>
+<tr><td style="text-align: left">CSW</td><td style="text-align: left">Catalog Service for the Web (CSW)</td></tr>
+<tr><td style="text-align: left">DAP</td><td style="text-align: left">Data access protocol (DAP)</td></tr>
+<tr><td style="text-align: left">DBMS</td><td style="text-align: left">DataBase Management System (DBMS)</td></tr>
+<tr><td style="text-align: left">DIANA</td><td style="text-align: left">Digital Analysis tool for visualisation of geodata, open source from MET Norway (DIANA)</td></tr>
+<tr><td style="text-align: left">diana-WMS</td><td style="text-align: left">WMS implementation in DIANA</td></tr>
+<tr><td style="text-align: left">DIAS</td><td style="text-align: left">Copernicus Data and Information Access Services (DIAS)</td></tr>
+<tr><td style="text-align: left">DIF</td><td style="text-align: left">Directory Interchange Format of GCMD (DIF)</td></tr>
+<tr><td style="text-align: left">DLM</td><td style="text-align: left">Data life cycle management (DLM)</td></tr>
+<tr><td style="text-align: left">DM</td><td style="text-align: left">Data Manager</td></tr>
+<tr><td style="text-align: left">DMH</td><td style="text-align: left">Data Management Handbook (this document)</td></tr>
+<tr><td style="text-align: left">DMCG</td><td style="text-align: left">Data Management Coordination Group</td></tr>
+<tr><td style="text-align: left">DMP</td><td style="text-align: left">Data Management Plan (DMP definition, easyDMP tool)</td></tr>
+<tr><td style="text-align: left">DOI</td><td style="text-align: left">Digital Object Identifier (DOI)</td></tr>
+<tr><td style="text-align: left">EBAS</td><td style="text-align: left">Database with atmospheric measurement data at NILU</td></tr>
+<tr><td style="text-align: left">eduGAIN</td><td style="text-align: left">The Global Academic Interfederation Service (eduGAIN)</td></tr>
+<tr><td style="text-align: left">ENVRI</td><td style="text-align: left">European Environmental Research Infrastructures (ENVRI)</td></tr>
+<tr><td style="text-align: left">ENVRI FAIR</td><td style="text-align: left">Making the ENV RIs data services FAIR." A proposal to the EU’s Horizon 2020 call INFRAEOSC-04</td></tr>
+<tr><td style="text-align: left">EOSC</td><td style="text-align: left">European Open Science Cloud (EOSC)</td></tr>
+<tr><td style="text-align: left">ERDDAP</td><td style="text-align: left">NOAA Environmental Research Division Data Access Protocol (ERDDAP)</td></tr>
+<tr><td style="text-align: left">ESA</td><td style="text-align: left">European Space Agency (ESA)</td></tr>
+<tr><td style="text-align: left">ESGF</td><td style="text-align: left">Earth System Grid Federation (ESGF)</td></tr>
+<tr><td style="text-align: left">EWC</td><td style="text-align: left">European Weather Cloud ()</td></tr>
+<tr><td style="text-align: left">FAIR</td><td style="text-align: left">Findability, Accessibility, Interoperability and Reusability RD3</td></tr>
+<tr><td style="text-align: left">FEIDE</td><td style="text-align: left">Identity Federation of the Norwegian National Research and Education Network (UNINETT) (FEIDE)</td></tr>
+<tr><td style="text-align: left">FFI</td><td style="text-align: left">Norwegian Defence Research Establishment (FFI)</td></tr>
+<tr><td style="text-align: left">FORCE11</td><td style="text-align: left">Future of Research Communication and e-Scholarship (FORCE11)</td></tr>
+<tr><td style="text-align: left">GCMD</td><td style="text-align: left">Global Change Master Directory (GCMD)</td></tr>
+<tr><td style="text-align: left">GCW</td><td style="text-align: left">Global Cryosphere Watch (GCW)</td></tr>
+<tr><td style="text-align: left">GeoAccessNO</td><td style="text-align: left">An NFR-funded infrastructure project, 2015- (GeoAccessNO)</td></tr>
+<tr><td style="text-align: left">GIS</td><td style="text-align: left">Geographic Information System</td></tr>
+<tr><td style="text-align: left">GRIB</td><td style="text-align: left">GRIdded Binary or General Regularly-distributed Information in Binary form. WMO standard file format for gridded data (GRIB)</td></tr>
+<tr><td style="text-align: left">HDF, HDF5</td><td style="text-align: left">Hierarchical Data Format (HDF)</td></tr>
+<tr><td style="text-align: left">Hyrax</td><td style="text-align: left">OPeNDAP 4 Data Server (Hyrax)</td></tr>
+<tr><td style="text-align: left">IMR</td><td style="text-align: left">Institute of Marine Research (IMR)</td></tr>
+<tr><td style="text-align: left">INSPIRE</td><td style="text-align: left">Infrastructure for Spatial Information in Europe (INSPIRE)</td></tr>
+<tr><td style="text-align: left">ISO 19115</td><td style="text-align: left">ISO standard for geospatial metadata (ISO 19115-1:2014).</td></tr>
+<tr><td style="text-align: left">IPY</td><td style="text-align: left">International Polar Year (IPY)</td></tr>
+<tr><td style="text-align: left">JRCC</td><td style="text-align: left">Joint Rescue Coordination centre (Hovedredningssentralen)</td></tr>
+<tr><td style="text-align: left">KDVH</td><td style="text-align: left">KlimaDataVareHus</td></tr>
+<tr><td style="text-align: left">KPI</td><td style="text-align: left">Key Performance Indicator (KPI)</td></tr>
+<tr><td style="text-align: left">METCIM</td><td style="text-align: left">MET Norway Crisis and Incident Management (METCIM)</td></tr>
+<tr><td style="text-align: left">METSIS</td><td style="text-align: left">MET Norway Scientific Information System</td></tr>
+<tr><td style="text-align: left">MMD</td><td style="text-align: left">Met.no Metadata Format MMD</td></tr>
+<tr><td style="text-align: left">MOAI</td><td style="text-align: left">Meta Open Archives Initiative server (MOAI)</td></tr>
+<tr><td style="text-align: left">ncWMS</td><td style="text-align: left">WMS implementation for NetCDF files (ncWMS)</td></tr>
+<tr><td style="text-align: left">NERSC</td><td style="text-align: left">Nansen Environmental and Remote Sensing Center (NERSC)</td></tr>
+<tr><td style="text-align: left">NetCDF</td><td style="text-align: left">Network Common Data Format (NetCDF)</td></tr>
+<tr><td style="text-align: left">NetCDF/CF</td><td style="text-align: left">A common combination of NetCDF file format with CF-compliant attributes.</td></tr>
+<tr><td style="text-align: left">NFR</td><td style="text-align: left">The Research Council of Norway (NFR)</td></tr>
+<tr><td style="text-align: left">NILU</td><td style="text-align: left">Norwegian Institute for Air Research (NILU)</td></tr>
+<tr><td style="text-align: left">NIVA</td><td style="text-align: left">Norwegian Institute for Water Research (NIVA)</td></tr>
+<tr><td style="text-align: left">NMDC</td><td style="text-align: left">Norwegian Marine Data Centre, NFR-supported infrastructure project 2013-2017 (NMDC)</td></tr>
+<tr><td style="text-align: left">NorDataNet</td><td style="text-align: left">Norwegian Scientific Data Network, an NFR-funded project 2015-2020 (NorDataNet)</td></tr>
+<tr><td style="text-align: left">Norway Digital</td><td style="text-align: left">Norwegian national spatial data infrastructure organisation (Norway Digital). Norwegian: Norge digitalt</td></tr>
+<tr><td style="text-align: left">NORMAP</td><td style="text-align: left">Norwegian Satellite Earth Observation Database for Marine and Polar Research, an NFR-funded project 2010-2016 (NORMAP)</td></tr>
+<tr><td style="text-align: left">NRPA</td><td style="text-align: left">Norwegian Radiation Protection Authority (NRPA)</td></tr>
+<tr><td style="text-align: left">NSDI</td><td style="text-align: left">National Spatial Data Infrastructure, USA (NSDI)</td></tr>
+<tr><td style="text-align: left">NVE</td><td style="text-align: left">Norwegian Water Resources and Energy Directorate (NVE)</td></tr>
+<tr><td style="text-align: left">NWP</td><td style="text-align: left">Numerical Weather Prediction</td></tr>
+<tr><td style="text-align: left">OAI-PMH</td><td style="text-align: left">Open Archives Initiative - Protocol for Metadata Harvesting (OAI-PMH)</td></tr>
+<tr><td style="text-align: left">OAIS</td><td style="text-align: left">Open Archival Information System (OAIS)</td></tr>
+<tr><td style="text-align: left">OCEANOTRON</td><td style="text-align: left">Web server dedicated to the dissemination of ocean in situ observation data collections (OCEANOTRON)</td></tr>
+<tr><td style="text-align: left">OECD</td><td style="text-align: left">The organisation for Economic Co-operation and Developement. OECD</td></tr>
+<tr><td style="text-align: left">OGC</td><td style="text-align: left">Open Geospatial Consortium (OGC)</td></tr>
+<tr><td style="text-align: left">OGC O&amp;M OGC</td><td style="text-align: left">Observations and Measurements standard (OGC O&amp;M)</td></tr>
+<tr><td style="text-align: left">OLA</td><td style="text-align: left">Operational-level Agreement (OLA)</td></tr>
+<tr><td style="text-align: left">OPeNDAP</td><td style="text-align: left">Open-source Project for a Network Data Access Protocol (OPeNDAP) - reference server implementation</td></tr>
+<tr><td style="text-align: left">PID</td><td style="text-align: left">Persistent Identifier (PID)</td></tr>
+<tr><td style="text-align: left">RM-ODP</td><td style="text-align: left">Reference Model of Open Distributed Processing (RM-ODP)</td></tr>
+<tr><td style="text-align: left">PROV</td><td style="text-align: left">A W3C Working Group on provenance and a Family of Documents (PROV)</td></tr>
+<tr><td style="text-align: left">SAON</td><td style="text-align: left">Sustaining Arctic Observing Networks (SAON/IASC)</td></tr>
+<tr><td style="text-align: left">SDI</td><td style="text-align: left">Spatial Data Infrastructure</td></tr>
+<tr><td style="text-align: left">SDN</td><td style="text-align: left">SeaDataNet, Pan-European infrastructure for ocean &amp; marine data management</td></tr>
+<tr><td style="text-align: left">SIOS</td><td style="text-align: left">Svalbard Integrated Arctic Earth Observing System</td></tr>
+<tr><td style="text-align: left">SIOS-KC</td><td style="text-align: left">SIOS Knowledge Centre, an NFR-supported project 2015-2018 (SIOS-KC)</td></tr>
+<tr><td style="text-align: left">SKOS</td><td style="text-align: left">Simple Knowledge Organization System (SKOS)</td></tr>
+<tr><td style="text-align: left">SLA</td><td style="text-align: left">Service-level Agreement (SLA)</td></tr>
+<tr><td style="text-align: left">SolR</td><td style="text-align: left">Apache Enterprise search server with a REST-like API (SolR)</td></tr>
+<tr><td style="text-align: left">StInfoSys</td><td style="text-align: left">MET Norway’s Station Information System</td></tr>
+<tr><td style="text-align: left">TDS</td><td style="text-align: left">THREDDS Data Server (TDS)</td></tr>
+<tr><td style="text-align: left">THREDDS</td><td style="text-align: left">Thematic Real-time Environmental Distributed Data Services</td></tr>
+<tr><td style="text-align: left">UNSDI</td><td style="text-align: left">United Nations Spatial Data Infrastructure (UNSDI)</td></tr>
+<tr><td style="text-align: left">UUID</td><td style="text-align: left">Universally Unique Identifier (UUID)</td></tr>
+<tr><td style="text-align: left">W3C</td><td style="text-align: left">World Wide Web Consortium (W3C)</td></tr>
+<tr><td style="text-align: left">WCS</td><td style="text-align: left">OGC Web Coverage Service (WCS)</td></tr>
+<tr><td style="text-align: left">WFS</td><td style="text-align: left">OGC Web Feature Service (WFS)</td></tr>
+<tr><td style="text-align: left">WIGOS</td><td style="text-align: left">WMO Integrated Global Observing System (WIGOS)</td></tr>
+<tr><td style="text-align: left">WIS</td><td style="text-align: left">WMO Information System (WIS)</td></tr>
+<tr><td style="text-align: left">WMO</td><td style="text-align: left">World Meteorological Organisation (WMO)</td></tr>
+<tr><td style="text-align: left">WMS</td><td style="text-align: left">OGC Web Map Service (WMS)</td></tr>
+<tr><td style="text-align: left">WPS</td><td style="text-align: left">OGC Web Processing Service (WPS)</td></tr>
+<tr><td style="text-align: left">YOPP</td><td style="text-align: left">Year of Polar Prediction (YOPP Data Portal)</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="userPortals.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="glossary.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="userPortals.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="glossary.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

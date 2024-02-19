@@ -1,0 +1,642 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>NetCDF - Data Manangement Handbook for S-ENDA partners</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="Intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item "><a href="fair.html"><strong aria-hidden="true">2.</strong> FAIR</a></li><li class="chapter-item "><a href="dataGovernance.html"><strong aria-hidden="true">3.</strong> Data Governance</a></li><li class="chapter-item "><a href="structDocData.html"><strong aria-hidden="true">4.</strong> Structuring and Documenting Data</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="struct_dataset.html"><strong aria-hidden="true">4.1.</strong> Datasets</a></li><li class="chapter-item "><a href="struct_metadata.html"><strong aria-hidden="true">4.2.</strong> Metadata</a></li><li class="chapter-item "><a href="struct_vocabulary.html"><strong aria-hidden="true">4.3.</strong> Vocabulary</a></li><li class="chapter-item "><a href="struct_institute.html"><strong aria-hidden="true">4.4.</strong> Institute-specific data structure</a></li></ol></li><li class="chapter-item "><a href="data_management.html"><strong aria-hidden="true">5.</strong> Data management</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="data_management_institute.html"><strong aria-hidden="true">5.1.</strong> Institute-specific data management</a></li><li class="chapter-item "><a href="data_management_architecture.html"><strong aria-hidden="true">5.2.</strong> S-ENDA architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="data_management_datasets.html"><strong aria-hidden="true">5.2.1.</strong> Dataset formats and specifications</a></li></ol></li><li class="chapter-item "><a href="data_management_contacts_tbl.html"><strong aria-hidden="true">5.3.</strong> Contacts and roles</a></li></ol></li><li class="chapter-item expanded "><a href="practicalGuides.html"><strong aria-hidden="true">6.</strong> Practical Guides</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="practicalGuides_DMP.html"><strong aria-hidden="true">6.1.</strong> Data Management Plan</a></li><li class="chapter-item expanded "><a href="practicalGuides_NETCDF.html" class="active"><strong aria-hidden="true">6.2.</strong> NetCDF</a></li><li class="chapter-item "><a href="practicalGuides_CSW.html"><strong aria-hidden="true">6.3.</strong> Search data in CSW</a></li></ol></li><li class="chapter-item "><a href="dataServices.html"><strong aria-hidden="true">7.</strong> Data Services</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="userPortals.html"><strong aria-hidden="true">7.1.</strong> User Portals</a></li><li class="spacer"></li></ol></li><li class="chapter-item "><a href="acronym.html">Acronyms</a></li><li class="chapter-item affix "><a href="glossary.html">Glossary</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Data Manangement Handbook for S-ENDA partners</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/s-ENDA/dmh" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/S-ENDA/DMH/issues/new" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h3 id="introduction"><a class="header" href="#introduction">Introduction</a></h3>
+<p><a href="https://www.unidata.ucar.edu/software/netcdf/">NetCDF (Network Common Data Form)</a> is a format designed to facilitate handling of array-oriented scientific data. For a more detailed description, please visit <a href="https://docs.unidata.ucar.edu/nug/current/netcdf_introduction.html">Unidata's NetCDF user's guide.</a></p>
+<h2 id="submitting-data-as-netcdf-cf"><a class="header" href="#submitting-data-as-netcdf-cf">Submitting data as NetCDF-CF</a></h2>
+<h3 id="workflow"><a class="header" href="#workflow">Workflow</a></h3>
+<ol>
+<li>Define your dataset</li>
+<li>Create a NetCDF-CF file
+<ul>
+<li>Add discovery metadata as global attributes (see global attibutes section)</li>
+<li>Add variables and use metadata following the <a href="https://cfconventions.org/">CF conventions</a></li>
+</ul>
+</li>
+<li>Store the NetCDF-CF file in a suitable location, and distribute it via thredds or another dap server</li>
+<li>Register your dataset in a searchable catalog
+<ul>
+<li>Test that your dataset contains the necessary discovery metadata and create an MMD xml file</li>
+<li>Test the MMD xml file</li>
+<li>Push the MMD xml file to the discovery metadata catalog</li>
+</ul>
+</li>
+</ol>
+<h3 id="creating-netcdf-cf-files"><a class="header" href="#creating-netcdf-cf-files">Creating NetCDF-CF files</a></h3>
+<p>By documenting and formatting your data using <a href="https://www.unidata.ucar.edu/software/netcdf/">NetCDF)</a> following the <a href="https://cfconventions.org/">CF conventions</a> and the <a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">Attribute Convention for Data Discovery (ACDD)</a>, <a href="https://github.com/metno/mmd">MMD</a> (metadata) files can be automatically generated from the NetCDF files. The CF conventions is a controlled vocabulary providing a definitive description of what the data in each variable represents, and the spatial and temporal properties of the data. The ACDD vocabulary describes attributes recommended for describing a NetCDF dataset to data discovery systems. See, e.g.,<a href="https://unidata.github.io/netcdf4-python/">netCDF4-python docs</a>, or <a href="http://xarray.pydata.org/en/stable/user-guide/io.html%5D">xarray docs</a>for documentation about how to create netCDF files.</p>
+<p>The ACDD recommendations should be followed in order to properly document your netCDF-CF files. The tables below summarize the required and recommended ACDD as well as additional attributes required to support interoperability between different information systems( e.g.,GCMD/DIF, the INSPIRE and WMO profiles of ISO19115, etc.).</p>
+<h4 id="notes"><a class="header" href="#notes">Notes</a></h4>
+<p>Keywords describe the content of your dataset following a given vocabulary. You may use any vocabulary to define your keywords, but a link to the keyword definitions should be provided in the
+keywords_vocabulary attribute. This attribute provides information about the vocabulary defining the keywords used in the keywords attribute. Example:</p>
+<pre><code class="language-:keywords_vocabulary = &quot;GCMDSK:GCMD Science">Keywords:https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords,GEMET:INSPIRE 
+Themes:http://inspire.ec.europa.eu/theme,NORTHEMES:GeoNorge
+Themes:https://register.geonorge.no/metadata-kodelister/nasjonal-temainndeling";
+</code></pre>
+<p>Note that the <a href="https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords">GCMDSK</a> <a href="http://inspire.ec.europa.eu/theme">GEMET</a> and <a href="https://register.geonorge.no/metadata-kodelister/nasjonal-temainndeling">NORTHEMES</a> vocabularies are required for indexing in <a href="https://adc.met.no/">S-ENDA</a> and <a href="https://www.geonorge.no/en/">Geonorge</a>.</p>
+<p>The keywords should be provided by the keywords attribute as a comma separated list with a short-name defining the vocabulary used, followed by the actual keyword, i.e., short_name:keyword. Example:</p>
+<pre><code>:keywords = "GCMDSK:Earth Science &gt; Atmosphere &gt; Atmospheric radiation, GEMET:Meteorological geographical features,
+GEMET:Atmospheric conditions, NORTHEMES:Weather and climate";
+</code></pre>
+<p>See https://adc.met.no/node/96 for more information about how to define the ACDD keywords.</p>
+<p>A data license provides information about any restrictions on the use of the dataset. To support a linked data approach, it is strongly recommended to use identifiers and URL’s from https://spdx.org/licenses/ and to use a form similar to <URL>(<Identifier>) using elements from the SPDX license list. Example:</p>
+<p><code>:license = "http://spdx.org/licenses/CC-BY-4.0(CC-BY-4.0)" ;</code></p>
+<h4 id="default-global-attribute-values-for-met-norway"><a class="header" href="#default-global-attribute-values-for-met-norway">Default global attribute values for MET Norway</a></h4>
+<p>The below is an example of selected global attributes, as shown from the output of <code>ncdump -h &lt;filename&gt;:</code></p>
+<pre><code>// global attributes:
+:creator_institution = "Norwegian Meteorological Institute" ;
+:institution = "Norwegian Meteorological Institute" ;
+:institution_short_name = "MET Norway" ;:keywords = "GCMDSK:&lt;to-be-added-by-data-creator&gt;, GEMET:&lt;to-be-added-by-data-creator&gt;,
+GEMET:&lt;to-be-added-by-data-creator&gt;, GEMET:&lt;to-be-added-by-data-creator&gt;, NORTHEMES:&lt;to-be-
+added-by-data-creator&gt;" ;
+:keywords_vocabulary = "GCMDSK:GCMD Science
+Keywords:https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords,
+GEMET:INSPIRE Themes:http://inspire.ec.europa.eu/theme, NORTHEMES:GeoNorge
+Themes:https://register.geonorge.no/metadata-kodelister/nasjonal-temainndeling" ;
+:license = "http://spdx.org/licenses/CC-BY-4.0(CC-BY-4.0)" ;
+:naming_authority = "no.met" ;
+:publisher_name = "Norwegian Meteorological Institute" ;
+:publisher_type = "institution" ;
+:publisher_email = "csw-services@met.no" ;
+:publisher_url = "https://www.met.no/" ;
+
+</code></pre>
+<p>Global attribute values for other S-ENDA partners can be added as showm:</p>
+<pre><code>// global attributes:
+    :creator_institution = "&lt;to-be-added&gt;" ;
+    :institution = "&lt;to-be-added&gt;" ;
+    :institution_short_name = "&lt;to-be-added&gt;" ;
+    :keywords = "GCMDSK:&lt;to-be-added-by-data-creator&gt;, GEMET:&lt;to-be-added-by-data-creator&gt;, GEMET:&lt;to-be-added-by-data-creator&gt;, GEMET:&lt;to-be-added-by-data-creator&gt;, NORTHEMES:&lt;to-be-added-by-data-creator&gt;" ;
+    :keywords_vocabulary = "GCMDSK:GCMD Science Keywords:https://gcmd.earthdata.nasa.gov/kms/concepts/concept_scheme/sciencekeywords, GEMET:INSPIRE Themes:http://inspire.ec.europa.eu/theme, NORTHEMES:GeoNorge Themes:https://register.geonorge.no/metadata-kodelister/nasjonal-temainndeling" ;
+    :license = "http://spdx.org/licenses/CC-BY-4.0(CC-BY-4.0)" ;
+    :naming_authority = "&lt;to-be-added&gt;" ;
+    :publisher_name = "&lt;publisher-institution-name&gt;" ;
+    :publisher_type = "institution" ;
+    :publisher_email = "&lt;to-be-added&gt;" ;
+    :publisher_url = "&lt;to-be-added&gt;" ;
+</code></pre>
+<h4 id="example-script-to-update-a-netcdf-cf-file-with-correct-discovery-metadata"><a class="header" href="#example-script-to-update-a-netcdf-cf-file-with-correct-discovery-metadata">Example script to update a NetCDF-CF file with correct discovery metadata</a></h4>
+<p>We use a test dataset containing the U component of wind at 10 m height, x_wind_10m, extracted from a <a href="https://thredds.met.no/thredds/catalog/metusers/magnusu/test-2023-02-03/catalog.html?dataset=metusers/magnusu/test-2023-02-03/meps_reduced.nc">MEPS 2.5km file</a> (~3.5G). The file can be downloaded by clicking on the link at access point 2., HTTPServer.
+Below is an example python script to add the required discovery metadata to the netCDF-CF file. The resulting file can be validated by the script scripts/nc2mmd.py in <a href="https://github.com/metno/py-mmd-tools">py-mmd-tools</a>, which also can parse the netCDF-CF file into an MMD xml file.The script becomes available as the endpoint nc2mmd in the environment where the py-mmd-tools repo is
+installed. A warning that the CF attribute featureType is missing will be printed, but this is not a concern for this dataset, since it is gridded data, and featureType only applies to discrete sampling geometries (see https://cfconventions.org/Data/cf-conventions/cf-conventions-1.10/cf-conventions.html#_features_and_feature_types).</p>
+<pre><code>#!/usr/bin/env python
+from datetime import datetime, timezone
+import sys
+import netCDF4
+from uuid import uuid4
+
+with netCDF4.Dataset(sys.argv[1], "a") as f:
+    f.id = str(uuid4())
+    f.naming_authority = "no.met"
+
+    f.creator_institution = "Norwegian Meteorological Institute"
+    f.delncattr("creator_url")  # not needed, replaced by publisher_url
+
+    f.institution = "Norwegian Meteorological Institute"
+    f.institution_short_name = 'MET Norway'
+
+    f.title = "U component of wind speed at ten meter height (example)"
+    f.title_no = "U-komponent av vindhastighet i ti meters høyde (eksempel)"
+    f.summary = (
+        "Test dataset to demonstrate how to document a netcdf-cf file"
+        " containing wind speed at 10 meter height from a MEPS 2.5km "
+        "dataset with ACDD attributes.")
+    f.summary_no = (
+        "Test datasett for å demonstrere hvordan du dokumenterer en "
+        "netcdf-cf-fil som inneholder vindhastighet i 10 meters "
+        "høyde fra et MEPS 2,5 km datasett med ACDD-attributter.")
+    f.references = "https://github.com/metno/NWPdocs/wiki (Users guide)"
+
+    f.keywords = (
+        "GCMDSK:Earth Science &gt; Atmosphere &gt; Atmospheric winds, "
+        "GEMET:Meteorological geographical features, "
+        "GEMET:Atmospheric conditions, "
+        "GEMET:Oceanographic geographical features, "
+        "NORTHEMES:Weather and climate")
+    f.keywords_vocabulary = (
+        "GCMDSK:GCMD Science Keywords:https://gcmd.earthdata.nasa.gov"
+        "/kms/concepts/concept_scheme/sciencekeywords, "
+        "GEMET:INSPIRE themes:https://inspire.ec.europa.eu/theme, "
+        "NORTHEMES:GeoNorge Themes:https://register.geonorge.no/"
+        "subregister/metadata-kodelister/kartverket/nasjonal-"
+        "temainndeling")
+
+    # Set ISO topic category
+    f.iso_topic_category = "climatologyMeteorologyAtmosphere"
+
+    # Set the correct license
+    f.license = "http://spdx.org/licenses/CC-BY-4.0(CC-BY-4.0)"
+
+    f.publisher_name = "Norwegian Meteorological Institute"
+    f.publisher_type = "institution"
+    f.publisher_email = "csw-services@met.no"
+    f.publisher_url = "https://www.met.no/"
+
+    # Extract time_coverage_start from the time variable
+    tstart = f.variables['time'][0]  # masked array
+    tstart = int(tstart[~tstart.mask].data[0])
+    tstart = datetime.fromtimestamp(tstart)
+    # The time zone is utc (this can be seen from the metadata of the
+    # time variable) and the time in isoformat is
+    # 2023-02-01T10:00:00+00:00
+    f.time_coverage_start = tstart.replace(tzinfo=timezone.utc).isoformat()
+
+    # Extract time_coverage_end from the time variable
+    tend = f.variables['time'][-1]  # masked array
+    tend = int(tend[~tend.mask].data[0])
+    tend = datetime.fromtimestamp(tend)
+    # The time in isoformat is 2023-02-03T23:00:00+00:00
+    f.time_coverage_end = tend.replace(tzinfo=timezone.utc).isoformat()
+
+    # The date_created is in this case recorded in the history attribute
+    # We have hardcoded it here for simplicity
+    f.date_created = datetime.strptime("2023-02-01T11:30:05", "%Y-%m-%dT%H:%M:%S").replace(
+        tzinfo=timezone.utc).isoformat()
+
+    # Set the spatial representation (a MET ACDD extension)
+    f.spatial_representation = 'grid'
+
+    # Update the conventions attribute to the correct ones
+    f.Conventions = 'CF-1.10, ACDD-1.3'
+</code></pre>
+<p>To test it yourself, you can do the following:</p>
+<pre><code>$ git clone git@github.com:metno/data-management-handbook.git
+$ cd data-management-handbook/example_scripts
+$ wget https://thredds.met.no/thredds/fileServer/metusers/magnusu/test-2023-02-03/meps_reduced.nc
+$ ./update_meps_file.py meps_reduced
+$ cd &lt;path-to-py-mmd-tools&gt;/script
+$ ./nc2mmd.py -i &lt;path-to-data-management-handbook&gt;/example_scripts/meps_reduced.nc -o .
+$ less meps_reduced.xml  # to see the MMD xml file
+</code></pre>
+<h3 id="how-to-add-netcdf-cf-data-to-thredds"><a class="header" href="#how-to-add-netcdf-cf-data-to-thredds">How to add NetCDF-CF data to thredds</a></h3>
+<p>This section contains institution specific information about how to add netcdf-cf files to thredds.</p>
+<h4 id="met-norway"><a class="header" href="#met-norway">MET Norway</a></h4>
+<p>To add your NetCDF-CF data to <a href="https://thredds.met.no/thredds/catalog.html%5D">thredds.met.no</a>? Follow these steps and your data will be discoverable by MET Norway’s thredds server
+(discovery metadata files can then be created with the nc2mmd tool in <a href="https://github.com/metno/py-mmd-tools%5D">py-mmd-tools</a>.</p>
+<ol>
+<li>Store the NetCDF-CF file(s) on the lustre filesystem.</li>
+</ol>
+<ul>
+<li>If you need help to transfer data, file a ticket at <a href="https://hjelp.met.no">hjelp.met.no</a></li>
+<li>Make sure that you have sufficient quota on lustre for your data or apply for a quota on <a href="https://hjelp.met.no">hjelp.met.no</a></li>
+<li>You can either use your own user space or a group area that you have access to within a project</li>
+<li>Make sure you add the same data to both the A and B storage rooms if you need redundancy (this requires some extra steps)</li>
+</ul>
+<ol start="2">
+<li>Then, thredds needs to be able to discover your data:</li>
+</ol>
+<ul>
+<li>Use <a href="https://hjelp.met.no">hjelp.met.no</a> to file a ticket for adding data to thredds. The full path to your data or to the base directory of your data structure is needed. All data files ending with .nc ( or.ncml ) below this base directory will be visible on thredds.</li>
+<li>When thredds configuration updates have been deployed by the thredds administrator, your NetCDF-CF data will become visible on the server.</li>
+</ul>
+<p>The base directory of all data available on thredds is https://thredds.met.no/thredds/catalog.html. Here you will find your data in the folder agreed with the thredds administrator. If your files are correctlyformatted and follow the <a href="https://cfconventions.org/">CF</a> and <a href="https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3">ACDD</a> conventions, it is also possible to register the datasets in the discovery metadata catalog. See details in [Creating NetCDF-CF files].</p>
+<h2 id="register-and-make-data-available"><a class="header" href="#register-and-make-data-available">Register and make data available</a></h2>
+<p>In order to make a dataset findable, a dataset must be registered in a searchable catalog with appropriate metadata. Metadata Controlled Production is the process of using metadata and notification services to control downstream production. The (meta)data catalog is indexed and exposed through <a href="https://www.geonorge.no/en/for-developers/apis/csw/">CSW</a>.</p>
+<p>At MET Norway for example,the MET Messaging System (MMS) a message broker, notifies users about the availability of new data. MMS uses <a href="https://cloudevents.io/">CloudEvents</a> to describe <a href="https://github.com/metno/MMS/blob/main/messages.md">Product Events</a>, which are notification messages about new datasets (or products). MMS can be used both to notifying downstream production systems, and to make datasets findable, accessible and reusable for the general public. The former can be achieved by supplying the minimum required metadata in a Product Event, whereas the latter requires provisioning of an MMD metadata string to the Product Event.</p>
+<p>In order to make a dataset available to the public, a dataset must be registered in a searchable catalog with appropriate metadata.The following needs to be done:</p>
+<ol>
+<li>Generate an MMD xml file from your NetCDF-CF file</li>
+<li>Test your mmd xml metadata file</li>
+<li>Push the MMD xml file to MMS or to the discovery metadata catalog service</li>
+</ol>
+<h3 id="generation-of-mmd-xml-file-from-netcdf-cf"><a class="header" href="#generation-of-mmd-xml-file-from-netcdf-cf">Generation of MMD xml file from NetCDF-CF</a></h3>
+<p>Clone the <a href="https://github.com/metno/py-mmd-tools.git">py-mmd-tools</a> repo and make a local installation with e.g., <em>pip install .</em>. This should bring in all needed dependencies (we recommend to use a virtual environment).
+Then, generate your mmd xml file as follows:</p>
+<pre><code>cd script
+./nc2mmd.py -i &lt;your netcdf file&gt; -o &lt;your xml output directory&gt;
+</code></pre>
+<p>See <em>./nc2mmd.py --help</em> for documentation and extra options.</p>
+<p>You will find Extensible Stylesheet Language Transformations (XSLT) documents in the <a href="https://github.com/metno/mmd.git">MMD</a> repository. These can be used to translate the metadata documents from MMD to other vocabularies, such as ISO 19115:</p>
+<pre><code>./bin/convert_from_mmd -i &lt;your mmd xml file&gt; -f iso -o &lt;your iso output file name&gt;
+</code></pre>
+<p><em>Note that the discovery metadata catalog ingestion tool will take care of translations from MMD, so you don’t need to worry about that unless you have special interest in it.</em></p>
+<h3 id="test-the-mmd-xml-file"><a class="header" href="#test-the-mmd-xml-file">Test the MMD xml file</a></h3>
+<p>Install the <a href="https://github.com/metno/discovery-metadata-catalog-ingestor">dmci app</a>, and run the usage example locally. This will return an error message if anything is wrong with your MMD file.
+You can also test your MMD file via the DMCI API:</p>
+<pre><code>curl --data-binary "@&lt;PATH_TO_MMD_FILE&gt;" https://dmci.s-enda-*.k8s.met.no/v1/validate
+</code></pre>
+<h3 id="push-the-mmd-xml-file-to-the-discovery-metadata-catalog"><a class="header" href="#push-the-mmd-xml-file-to-the-discovery-metadata-catalog">Push the MMD xml file to the discovery metadata catalog</a></h3>
+<p>For development and verification purposes:a producer of data that does not need to go through the event queue should do the following:</p>
+<ol>
+<li>Push to the staging environment for tesing and verification: <code>curl --data-binary "@&lt;PATH_TO_MMD_FILE&gt;" https://dmci.s-enda-*.k8s.met.no/v1/insert</code>
+where * should be either dev or staging.</li>
+<li>Check that the MMD file has been added to the catalog services in staging</li>
+<li>Push for production (the official catalog): <code> curl --data-binary "@&lt;PATH_TO_MMD_FILE&gt;" https://dmci.s-enda.k8s.met.no/v1/insert</code></li>
+<li>Check that the MMD file has been added to the catalog services in production</li>
+</ol>
+<h2 id="how-to-find-data"><a class="header" href="#how-to-find-data">How to find data</a></h2>
+<h3 id="using-opensearch"><a class="header" href="#using-opensearch">Using OpenSearch</a></h3>
+<h4 id="local-test-machines"><a class="header" href="#local-test-machines">Local test machines</a></h4>
+<p>The <a href="https://github.com/metno/vagrant-s-enda">vagrant-s-enda</a> environment provides OpenSearch support through <a href="https://github.com/geopython/pycsw">PyCSW</a>. To test <a href="https://en.wikipedia.org/wiki/OpenSearch">OpenSearch</a> via the browser, start the vagrant-s-enda vm (vagrant up) and go to: <code>http://10.10.10.10/pycsw/csw.py?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetCapabilities</code></p>
+<p>This will return a description document of the catalog service. The URL field in the description document is a template format that can be used to represent a parameterized form of the search. The search client will process the URL template and attempt to replace each instance of a template parameter, generally represented in the form {name}, with a value determined at query time <a href="https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-url-template-syntax">OpenSearch URL template syntax</a>. The question mark following any search parameter means that the parameter is optional.</p>
+<h4 id="online-catalog"><a class="header" href="#online-catalog">Online catalog</a></h4>
+<p>For searching the online metadata catalog, the base url <code>(http://10.10.10.10/)</code> must be replaced by <code>https://csw.s-enda.k8s.met.no/</code>:</p>
+<p><code>http://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results</code></p>
+<h4 id="opensearch-examples"><a class="header" href="#opensearch-examples">OpenSearch examples</a></h4>
+<p>To find all datasets in the catalog:</p>
+<ul>
+<li><code>https://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results</code></li>
+</ul>
+<p>Or datasets within a given time span:</p>
+<ul>
+<li><code>http://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results&amp;time=2000-01-01/2020-09-01</code></li>
+</ul>
+<p>Or datasets within a geographical domain (defined as a box with parameters min_longitude, min_latitude, max_longitude, max_latitude):</p>
+<ul>
+<li><code>https://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results&amp;bbox=0,40,10,60</code></li>
+</ul>
+<p>Or, datasets from any of the Sentinel satellites:</p>
+<ul>
+<li><code>https://csw.s-enda.k8s.met.no/?mode=opensearch&amp;service=CSW&amp;version=2.0.2&amp;request=GetRecords&amp;elementsetname=full&amp;typenames=csw:Record&amp;resulttype=results&amp;q=sentinel</code></li>
+</ul>
+<h3 id="advanced-geographical-search-ogc-csw"><a class="header" href="#advanced-geographical-search-ogc-csw">Advanced geographical search OGC CSW</a></h3>
+<p>PyCSW opensearch only supports geographical searches querying for a box. For more advanced geographical searches, one must write specific XML files. For example:</p>
+<p>To find all datasets containing a point:</p>
+<pre><code>&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="no"?&gt;
+&lt;csw:GetRecords
+    xmlns:csw="http://www.opengis.net/cat/csw/2.0.2"
+    xmlns:ogc="http://www.opengis.net/ogc"
+    xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    service="CSW"
+    version="2.0.2"
+    resultType="results"
+    maxRecords="10"
+    outputFormat="application/xml"
+    outputSchema="http://www.opengis.net/cat/csw/2.0.2"
+    xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd" &gt;
+  &lt;csw:Query typeNames="csw:Record"&gt;
+    &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+    &lt;csw:Constraint version="1.1.0"&gt;
+      &lt;ogc:Filter&gt;
+        &lt;ogc:Contains&gt;
+          &lt;ogc:PropertyName&gt;ows:BoundingBox&lt;/ogc:PropertyName&gt;
+          &lt;gml:Point&gt;
+            &lt;gml:pos srsDimension="2"&gt;59.0 4.0&lt;/gml:pos&gt;
+          &lt;/gml:Point&gt;
+        &lt;/ogc:Contains&gt;
+      &lt;/ogc:Filter&gt;
+    &lt;/csw:Constraint&gt;
+  &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;
+</code></pre>
+<ul>
+<li>To find all datasets intersecting a polygon:</li>
+</ul>
+<pre><code>&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="no"?&gt;
+&lt;csw:GetRecords
+   xmlns:csw="http://www.opengis.net/cat/csw/2.0.2"
+   xmlns:gml="http://www.opengis.net/gml"
+   xmlns:ogc="http://www.opengis.net/ogc"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   service="CSW"
+   version="2.0.2"
+   resultType="results"
+   maxRecords="10"
+   outputFormat="application/xml"
+   outputSchema="http://www.opengis.net/cat/csw/2.0.2"
+   xsi:schemaLocation="http://www.opengis.net/cat/csw/2.0.2 http://schemas.opengis.net/csw/2.0.2/CSW-discovery.xsd" &gt;
+ &lt;csw:Query typeNames="csw:Record"&gt;
+   &lt;csw:ElementSetName&gt;full&lt;/csw:ElementSetName&gt;
+   &lt;csw:Constraint version="1.1.0"&gt;
+     &lt;ogc:Filter&gt;
+       &lt;ogc:Intersects&gt;
+         &lt;ogc:PropertyName&gt;ows:BoundingBox&lt;/ogc:PropertyName&gt;
+         &lt;gml:Polygon&gt;
+           &lt;gml:exterior&gt;
+             &lt;gml:LinearRing&gt;
+               &lt;gml:posList&gt;
+                 47.00 -5.00 55.00 -5.00 55.00 20.00 47.00 20.00 47.00 -5.00
+               &lt;/gml:posList&gt;
+             &lt;/gml:LinearRing&gt;
+           &lt;/gml:exterior&gt;
+         &lt;/gml:Polygon&gt;
+       &lt;/ogc:Intersects&gt;
+     &lt;/ogc:Filter&gt;
+   &lt;/csw:Constraint&gt;
+ &lt;/csw:Query&gt;
+&lt;/csw:GetRecords&gt;
+</code></pre>
+<ul>
+<li>Then, you can query the CSW endpoint with, e.g., python:</li>
+</ul>
+<pre><code>import requests
+requests.post('https://csw.s-enda.k8s.met.no', data=open(my_xml_request).read()).text
+</code></pre>
+<h3 id="human-search-interface"><a class="header" href="#human-search-interface">Human Search Interface</a></h3>
+<p>Access the human search interface through the provided user portals for S-ENDA partners at [https://s-enda.github.io/DMH/userPortals.html] to
+find you data via the web browser. For more information about how to use the service [responsible personnel](partners https://s-enda.github.io/DMH/data_management_contacts_tbl.html) for each S-ENDA is provided.</p>
+<h4 id="qgis"><a class="header" href="#qgis">QGIS</a></h4>
+<p>MET Norway’s S-ENDA CSW catalog service is available at https://data.csw.met.no. This can be used from QGIS as follows:</p>
+<ol>
+<li>Select <code>Web &gt; MetaSearch &gt; MetaSearch</code> menu item</li>
+<li>Select <code>Services &gt; New</code></li>
+<li>Type, e.g., <code>data.csw.met.no</code> for the name</li>
+<li>Type <code>https://data.csw.met.no</code> for the URL</li>
+</ol>
+<p>Under the <code>Search</code> tab, you can then add search parameters, click <code>Search</code>, and get a list of available datasets.</p>
+<h2 id="access-to-data-without-downloading"><a class="header" href="#access-to-data-without-downloading">Access to data without downloading</a></h2>
+<p>It is possible to get access to NetCDF data via URL. Here we provide ways to do so using Python and R.</p>
+<h3 id="with-python"><a class="header" href="#with-python">With Python</a></h3>
+<p>Xarray installation is required. For more information visit xarray's <a href="https://docs.xarray.dev/en/stable/index.html">documentation site</a> or <a href="https://docs.xarray.dev/en/latest/getting-started-guide/installing.html">getting started guide</a>.</p>
+<p>If you don't have xarray installed. Do so with</p>
+<pre><code class="language-python">python -m pip install "xarray[complete]"
+        
+# If you use conda: 
+
+conda install -c conda-forge xarray dask netCDF4 bottleneck
+</code></pre>
+<p><strong>Reproducible example:</strong></p>
+<pre><code class="language-python">import xarray as xr
+
+ds = xr.open_dataset("https://thredds.niva.no/thredds/dodsC/datasets/multisource/msource-inlet.nc")
+ds # this displays basic info on the dataset
+# If you don't need the full dataset subset!
+# That way you don't need to download all the years
+ds = ds.sel(time="2024")
+ds.to_dataframe()
+ds.temperature.plot()
+ds.head()
+</code></pre>
+<h3 id="with-r"><a class="header" href="#with-r">With R</a></h3>
+<p>There are several packages for NetCDF in R (RNetCDF, ncdf4, raster, stars). The example below uses <a href="https://docs.ropensci.org/tidync/">tidync</a>.
+<strong>Reproducible example:</strong></p>
+<pre><code class="language-R">library(tidync)
+
+url=paste0('https://thredds.niva.no/thredds/dodsC/datasets/multisource/msource-outlet.nc')
+          
+# Read the netcdf file from the url
+dataNiva = tidync(url) 
+</code></pre>
+<p>For full examples see:</p>
+<ul>
+<li><a href="./src/notebooks/create-timeseries.html">creating timeseries</a></li>
+<li><a href="./src/notebooks/create-trajectory.html">creating trajectories</a></li>
+</ul>
+<h2 id="assignment-of-digital-object-identifiers-dois"><a class="header" href="#assignment-of-digital-object-identifiers-dois">Assignment of Digital Object Identifiers (DOIs)</a></h2>
+<p>A DOI is a unique, persistent and web resolvable identifier (PID), that uniquely and persistently resolves to a digital resource. The DOI is a key element to make digital resources findable on the web, thus allowing for their easy discovery. Additionally, they can be used when citing a specific resource on the web.</p>
+<p>DOIs consist of an alphanumeric string made up by a prefix and a suffix. The prefix is assigned to a particular DOI registrant, e.g., MET Norway, whereas the suffix is provided by the registrant for a specific object. The combination of a prefix and a suffix is unique, and the suffix and the prefix are separated by a forward slash (e.g. 10.21343/z9n1-qw63).</p>
+<h3 id="dois-in-a-fair-perspective"><a class="header" href="#dois-in-a-fair-perspective">DOIs in a FAIR perspective</a></h3>
+<p>The use of DOIs for datasets specifically relates with the Findability and Reusability principles:</p>
+<ul>
+<li>Findability: Making a resource findable is the first step to allow for sharing of data, and for this reason this is a key point for achieving FAIRness of data.
+The first FAIR guideline principle states the following:</li>
+<li>F1. (meta)data are assigned a globally unique and persistent identifier. Thus, assigning a DOI to a
+digital resource adheres with the first principle of FAIRness, as the identifier will be globally unique
+as well as persistent.
+Additionally, the third principle for findability:</li>
+<li>F3: Metadata clearly and explicitly include the identifier of the data they describe.
+This means that the metadata and the data should be connected explicitly by mentioning a dataset’s globally unique and persistent identifier in the metadata of that specific dataset. This applies more particularly for data formats that do not include metadata in their headers, usually resulting in separate files for data and metadata.</li>
+<li>Reusability of data is strictly related with the possibility of citing data. When the DOI is incorporated into a citation it becomes a guaranteed location for the resource cited, because the DOI will always resolve to the right web address (URL). Using a DOI then allows for proper citation of data when it is reused, giving the right credits and visibility to scientists.</li>
+</ul>
+<pre><code>Further reading and resources:
+1. DOI FAQ [https://www.doi.org/faq.html]
+2. FAIR principle paper [https://doi.org/10.1038/sdata.2016.18]
+3. GO-FAIR [https://www.go-fair.org/fair-principles]
+4. OPENAIR [https://www.openaire.eu/how-to-make-your-data-fair]
+</code></pre>
+<h3 id="how-to-assign-dois-to-your-datasets"><a class="header" href="#how-to-assign-dois-to-your-datasets">How-to assign DOIs to your datasets</a></h3>
+<p>It is most practical to assign DOIs to parent datasets. However, any dataset can be assigned a DOI,irrespective of the DOI status of its related datasets. For example, a child dataset may receive its own DOI even if its parent also has a DOI. This may be practical if the dataset is, e.g., used in a scientific publication.</p>
+<p>In order for the DOI registration agency (DataCite) to assign a DOI, the followinf have to be provided:</p>
+<ol>
+<li>A metadata file containing at least the DataCite mandatory elements</li>
+<li>A URL to the dataset landing page, which will be the persistent URL to which the DOI resolves</li>
+</ol>
+<p>For MET Norway, the information required for the DataCite metadata file is available in <a href="%5Bhttps://htmlpreview.github.io/?https://github.com/metno/mmd/blob/master/doc/mmd-specification.html">MMD</a> whereas the DOI landing page is automatically created on the https://adc.met.no/ data portal, upon request from the data producer. Only administrators of the data portal have access to this service and are thus the only ones who can finalize the process of assigning a DOI.
+Examples of landing pages created using this approach are available at:</p>
+<ul>
+<li>https://adc.met.no/landing-page-collector</li>
+</ul>
+<pre><code>Further reading and resources:
+1. DOI at MET [https://adc.met.no/sites/adc.met.no/files/articles/DOIs-at-METNO.pdf]
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="practicalGuides_DMP.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="practicalGuides_CSW.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="practicalGuides_DMP.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="practicalGuides_CSW.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
