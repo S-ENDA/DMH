@@ -374,7 +374,7 @@ conda install -c conda-forge xarray dask netCDF4 bottleneck
 ```python
 import xarray as xr
 
-ds = xr.open_dataset("https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-inlet.nc")
+ds = xr.open_dataset("https://thredds.niva.no/thredds/dodsC/datasets/multisource/msource-inlet.nc")
 ds # this displays basic info on the dataset
 # If you don't need the full dataset subset!
 # That way you don't need to download all the years
@@ -392,7 +392,7 @@ There are several packages for NetCDF in R (RNetCDF, ncdf4, raster, stars). The 
 ```R
 library(tidync)
 
-url=paste0('https://thredds.niva.no/thredds/dodsC/datasets/loggers/msource-outlet.nc')
+url=paste0('https://thredds.niva.no/thredds/dodsC/datasets/multisource/msource-outlet.nc')
           
 # Read the netcdf file from the url
 dataNiva = tidync(url) 
